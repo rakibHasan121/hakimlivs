@@ -17,6 +17,7 @@ public class Product {
     protected String title;
     @Column(name="Description", length=1500, nullable=false)
     protected String description;
+    //protected int quantity;
     protected String image;
     protected double price;
     protected double productprice;

@@ -13,7 +13,6 @@ import java.util.List;
  */
 @Service
 public class ProductsServiceImpl implements ProductService {
-
     private final ProductsRepository productsRepository;
 
     public ProductsServiceImpl(ProductsRepository productsRepository) {
@@ -39,12 +38,12 @@ public class ProductsServiceImpl implements ProductService {
     /*POST Method*/
     @Override
     public Product saveProduct(Product product) {
-       return productsRepository.save(product);
+        return productsRepository.save(product);
     }
 
     @Override
     public List<Product> saveProducts(List<Product> products) {
-       return productsRepository.saveAll(products);
+        return productsRepository.saveAll(products);
     }
 
     /*DELETE Method*/
@@ -54,11 +53,6 @@ public class ProductsServiceImpl implements ProductService {
         return "Product Deleted!!";
     }
 
-    @Override
-    public String deleteAllProducts(List<Product> products){
-        productsRepository.deleteAll(products);
-        return "Product list is empty!!";
-    }
     /*UPDATE Method*/
     @Override
     public Product updateProduct(Product product) {

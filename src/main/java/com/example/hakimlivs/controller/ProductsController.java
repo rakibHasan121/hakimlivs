@@ -2,6 +2,7 @@ package com.example.hakimlivs.controller;
 
 import com.example.hakimlivs.model.Product;
 import com.example.hakimlivs.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,47 +16,46 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin
 public class ProductsController {
-    private final ProductService productService;
+    @Autowired
+    private ProductService productService;
 
-    public ProductsController(ProductService productService) {
-        this.productService = productService;
-    }
-
-    @PostMapping("/addproduct")
-    public Product saveProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
-    }
-
-    @PostMapping("/addproducts")
-    public List<Product> saveProducts(@RequestBody List<Product> products) {
-        return productService.saveProducts(products);
-    }
-
+    //Get all products
     @GetMapping("/products")
     public List<Product> findAllProducts() {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/product/{id}")
-    public Product findByProductByID(@PathVariable int id) {
+    //Get products by id
+    @GetMapping("/productById/{id}")
+    public Product findProductById(@PathVariable int id) {
         return productService.getProductByID(id);
     }
 
+    //Get products by title
     @GetMapping("/product/{titel}")
-    public Product findByProductByName(@PathVariable String titel) {
+    public Product findProductByTitel(@PathVariable String titel) {
         return productService.getProductByName(titel);
     }
 
+    //Add a product
+    @PostMapping("/addproduct")
+    public Product saveProduct(@RequestBody Product product) {
+        return productService.saveProduct(product);
+    }
+
+    //Add list of products
+    @PostMapping("/addproducts")
+    public List<Product> saveProducts(@RequestBody List<Product> products) {
+        return productService.saveProducts(products);
+    }
+
+    //Delete a product
     @DeleteMapping("/delete/{id}")
     public String deleteProduct(@PathVariable int id) {
         return productService.deleteProduct(id);
     }
 
-    @DeleteMapping("/deleteall")
-    public String deleteAllProducts(@RequestBody List<Product> products) {
-        return productService.deleteAllProducts(products);
-    }
-
+    //Update a product
     @PutMapping("/update")
     public Product updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
