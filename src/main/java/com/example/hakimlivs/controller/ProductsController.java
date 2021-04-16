@@ -11,6 +11,8 @@ import java.util.List;
  * Date: 2021-04-12
  * Projekt: hakimlivs
  */
+
+@CrossOrigin
 @RestController
 public class ProductsController {
     private final ProductService productService;
