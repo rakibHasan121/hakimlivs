@@ -11,12 +11,18 @@ import java.util.List;
  * Date: 2021-04-12
  * Projekt: hakimlivs
  */
+
 @RestController
 public class ProductsController {
     private final ProductService productService;
 
     public ProductsController(ProductService productService) {
         this.productService = productService;
+    }
+
+    @RequestMapping("/")
+    public String index() {
+        return "Hello World!";
     }
 
     @PostMapping("/addproduct")
