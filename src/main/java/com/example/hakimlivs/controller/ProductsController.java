@@ -12,7 +12,7 @@ import java.util.List;
  * Projekt: hakimlivs
  */
 
-@CrossOrigin(origins = "https://keen-minsky-5fecc3.netlify.app")
+@CrossOrigin
 @RestController
 public class ProductsController {
     private final ProductService productService;
