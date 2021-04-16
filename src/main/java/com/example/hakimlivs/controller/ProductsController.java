@@ -12,7 +12,7 @@ import java.util.List;
  * Projekt: hakimlivs
  */
 
-@CrossOrigin
+@CrossOrigin((origins = "https://hakims-livs.herokuapp.com/"))
 @RestController
 public class ProductsController {
     private final ProductService productService;
