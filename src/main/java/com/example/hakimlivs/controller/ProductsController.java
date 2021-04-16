@@ -25,13 +25,13 @@ public class ProductsController {
         return productService.getAllProducts();
     }
 
-    //Get products by id
+    //Get a product by its id
     @GetMapping("/productById/{id}")
     public Product findProductById(@PathVariable int id) {
         return productService.getProductByID(id);
     }
 
-    //Get products by title
+    //Get a product by its title
     @GetMapping("/product/{titel}")
     public Product findProductByTitel(@PathVariable String titel) {
         return productService.getProductByName(titel);
