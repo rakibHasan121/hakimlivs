@@ -11,18 +11,14 @@ import java.util.List;
  * Date: 2021-04-12
  * Projekt: hakimlivs
  */
-@CrossOrigin
 @RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = {"https://hakims-livs.herokuapp.com/products"}, methods = {RequestMethod.GET, RequestMethod.POST})
 public class ProductsController {
     private final ProductService productService;
 
     public ProductsController(ProductService productService) {
         this.productService = productService;
-    }
-
-    @RequestMapping("/")
-    public String index() {
-        return "Hello World!";
     }
 
     @PostMapping("/addproduct")
