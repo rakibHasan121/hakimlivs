@@ -30,7 +30,7 @@ public class Product {
     protected LocalDate dateadded;
     @UpdateTimestamp
     protected LocalDate dateedited;
-    protected double pricecomparison;
+    //protected double pricecomparison;
     protected double weight;
 
     public Product() {
