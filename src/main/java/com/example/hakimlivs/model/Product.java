@@ -1,5 +1,9 @@
 package com.example.hakimlivs.model;
 
+import HelpClasses.PriceMath;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -22,7 +26,9 @@ public class Product {
     protected double price;
     protected double productprice;
     protected String category;
+    @CreationTimestamp
     protected LocalDate dateadded;
+    @UpdateTimestamp
     protected LocalDate dateedited;
     protected double pricecomparison;
     protected double weight;
@@ -30,7 +36,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String title, String description, String image, double price, double productprice, String category, LocalDate dateadded, LocalDate dateedited, double pricecomparison, double weight) {
+    public Product(int id, String title, String description, String image, double price, double productprice, String category, LocalDate dateadded, LocalDate dateedited, double weight) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -40,7 +46,7 @@ public class Product {
         this.category = category;
         this.dateadded = dateadded;
         this.dateedited = dateedited;
-        this.pricecomparison = pricecomparison;
+        //this.pricecomparison = pricecomparison;
         this.weight = weight;
     }
 
@@ -117,11 +123,8 @@ public class Product {
     }
 
     public double getPricecomparison() {
-        return pricecomparison;
-    }
-
-    public void setPricecomparison(double pricecomparison) {
-        this.pricecomparison = pricecomparison;
+        Double priceComp = (price / weight) * 1000.0;
+        return PriceMath.round(priceComp,2);
     }
 
     public double getWeight() {
@@ -144,7 +147,7 @@ public class Product {
                 ", category='" + category + '\'' +
                 ", dateadded=" + dateadded +
                 ", dateedited=" + dateedited +
-                ", pricecomparison=" + pricecomparison +
+                ", pricecomparison=" + this.getPricecomparison() +
                 ", weight=" + weight +
                 '}';
     }

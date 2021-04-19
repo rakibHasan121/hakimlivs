@@ -5,6 +5,7 @@ import com.example.hakimlivs.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +24,13 @@ public class ProductsController {
     @GetMapping("/products")
     public List<Product> findAllProducts() {
         return productService.getAllProducts();
+    }
+
+    @GetMapping("/products/initiateDemoProducts")
+    public String initializeDemoProducts() {
+        DemoProductsCreator dpc = new DemoProductsCreator();
+        productService.saveProducts(dpc.getAllProducts());
+        return "Product loaded";
     }
 
     //Get a product by its id
