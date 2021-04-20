@@ -21,6 +21,12 @@ public class ProductsController {
     private ProductService productService;
 
     //Get all products
+    @GetMapping("/")
+    public String index() {
+        return "Hello World";
+    }
+
+    //Get all products
     @GetMapping("/products")
     public List<Product> findAllProducts() {
         return productService.getAllProducts();
