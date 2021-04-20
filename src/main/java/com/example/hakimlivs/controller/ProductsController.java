@@ -26,13 +26,6 @@ public class ProductsController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/products/initiateDemoProducts")
-    public String initializeDemoProducts() {
-        DemoProductsCreator dpc = new DemoProductsCreator();
-        productService.saveProducts(dpc.getAllProducts());
-        return "Product loaded";
-    }
-
     //Get a product by its id
     @GetMapping("/productById/{id}")
     public Product findProductById(@PathVariable int id) {

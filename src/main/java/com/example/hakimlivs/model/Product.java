@@ -21,7 +21,7 @@ public class Product {
     protected String title;
     @Column(name="Description", length=1500, nullable=false)
     protected String description;
-    //protected int quantity;
+    protected int stockInHand;
     protected String image;
     protected double price;
     protected double productprice;
@@ -30,23 +30,21 @@ public class Product {
     protected LocalDate dateadded;
     @UpdateTimestamp
     protected LocalDate dateedited;
-    //protected double pricecomparison;
     protected double weight;
 
     public Product() {
     }
 
-    public Product(int id, String title, String description, String image, double price, double productprice, String category, LocalDate dateadded, LocalDate dateedited, double weight) {
-        this.id = id;
+    public Product(String title, String description, int stockInHand, String image, double price, double productprice, String category, LocalDate dateadded, LocalDate dateedited, double weight) {
         this.title = title;
         this.description = description;
+        this.stockInHand = stockInHand;
         this.image = image;
         this.price = price;
         this.productprice = productprice;
         this.category = category;
         this.dateadded = dateadded;
         this.dateedited = dateedited;
-        //this.pricecomparison = pricecomparison;
         this.weight = weight;
     }
 
@@ -133,6 +131,14 @@ public class Product {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public int getStockInHand() {
+        return stockInHand;
+    }
+
+    public void setStockInHand(int stockInHand) {
+        this.stockInHand = stockInHand;
     }
 
     @Override
