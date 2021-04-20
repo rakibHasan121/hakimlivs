@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 
 public class PriceMath {
 
-
+//testkommentar
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
