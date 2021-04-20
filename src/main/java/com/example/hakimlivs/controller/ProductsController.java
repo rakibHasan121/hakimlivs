@@ -5,6 +5,7 @@ import com.example.hakimlivs.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,12 @@ import java.util.List;
 public class ProductsController {
     @Autowired
     private ProductService productService;
+
+    //Get all products
+    @GetMapping("/")
+    public String index() {
+        return "Hello World";
+    }
 
     //Get all products
     @GetMapping("/products")
