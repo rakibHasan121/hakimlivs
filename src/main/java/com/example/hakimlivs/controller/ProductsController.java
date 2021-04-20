@@ -23,7 +23,7 @@ public class ProductsController {
     //Get all products
     @GetMapping("/")
     public String index() {
-        return "Hello World";
+        return "API is up and running";
     }
 
     //Get all products
