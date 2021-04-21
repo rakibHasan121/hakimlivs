@@ -14,9 +14,9 @@ public class Customer {
     private Long id;
     private String firstname;
     private String lastname;
-    private String adress;
-    private String zip;
-    private String City;
+    private String address;
+    private String zipcode;
+    private String city;
     private String phone;
     private String email;
 
@@ -47,28 +47,28 @@ public class Customer {
         this.lastname = lastname;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String adress) {
+        this.address = adress;
     }
 
-    public String getZip() {
-        return zip;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setZipcode(String zip) {
+        this.zipcode = zip;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getPhone() {
@@ -93,9 +93,9 @@ public class Customer {
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", adress='" + adress + '\'' +
-                ", zip='" + zip + '\'' +
-                ", City='" + City + '\'' +
+                ", adress='" + address + '\'' +
+                ", zip='" + zipcode + '\'' +
+                ", City='" + city + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
