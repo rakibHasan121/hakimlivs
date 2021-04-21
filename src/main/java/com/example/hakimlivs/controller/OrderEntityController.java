@@ -5,9 +5,7 @@ import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.repository.OrderEntityRepository;
 import com.example.hakimlivs.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by: Ulf Nyberg
@@ -33,6 +31,16 @@ public class OrderEntityController {
     public Iterable <OrderEntity> getAllOrders(){
         return OERepo.findAll();
     }
+
+    /*
+    @POSTMapping("/addOrder")
+    public String greeting(@RequestParam String firstname,
+                           @RequestParam String lastname, @RequestParam String address, @RequestParam String zipcode, Model model) {
+        model.addAttribute(“fname", fname); model.addAttribute(“lname", lname);
+        return "greeting.html";
+    }
+
+     */
 
 
 
