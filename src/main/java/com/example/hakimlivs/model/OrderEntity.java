@@ -11,7 +11,7 @@ public class OrderEntity {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn
     private Customer customer;
 
@@ -33,5 +33,13 @@ public class OrderEntity {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderEntity{" +
+                "id=" + id +
+                ", customer=" + customer +
+                '}';
     }
 }
