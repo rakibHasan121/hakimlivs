@@ -5,7 +5,7 @@ import org.hibernate.criterion.Order;
 import javax.persistence.*;
 
 @Entity
-@Table(name="order")
+@Table(name="ordertable")
 public class OrderEntity {
 
     @Id
