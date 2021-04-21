@@ -1,5 +1,6 @@
 package com.example.hakimlivs.repository;
 
+import com.example.hakimlivs.model.OrderEntity;
 import com.example.hakimlivs.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,4 +13,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductsRepository extends JpaRepository<Product, Integer> {
     Product findByTitle(String title);
+    Product getProductById(Integer id);
 }

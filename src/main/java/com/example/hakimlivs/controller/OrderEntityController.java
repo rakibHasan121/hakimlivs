@@ -1,6 +1,8 @@
 package com.example.hakimlivs.controller;
 
+import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.OrderEntity;
+import com.example.hakimlivs.model.Product;
 import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.repository.OrderEntityRepository;
 import com.example.hakimlivs.repository.ProductsRepository;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * Copyright: MIT
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/order")
 public class OrderEntityController {
 
@@ -31,6 +34,26 @@ public class OrderEntityController {
     public Iterable <OrderEntity> getAllOrders(){
         return OERepo.findAll();
     }
+
+    @RequestMapping("/add")
+    public OrderEntity createOrder(@RequestParam Long customerID ) {
+        Customer selectedCustomer = customerRepo.getCustomerById(customerID);
+        OrderEntity createdOrder = new OrderEntity();
+        createdOrder.setCustomer(selectedCustomer);
+        return OERepo.save(createdOrder);
+    }
+
+    @RequestMapping("/addproducts")
+    public OrderEntity createOrder(@RequestParam Long orderID, @RequestParam Integer productID ) {
+
+        OrderEntity currentOrder = OERepo.getOrderEntityById(orderID);
+        Product currentProduct = productsRepo.getProductById(productID);
+
+        currentOrder.addProduct(currentProduct);
+
+        return OERepo.save(currentOrder);
+    }
+
 
     /*
     @POSTMapping("/addOrder")

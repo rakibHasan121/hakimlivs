@@ -11,4 +11,6 @@ import org.springframework.data.repository.CrudRepository;
  * Copyright: MIT
  */
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
+
+    Customer getCustomerById(Long id);
 }

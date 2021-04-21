@@ -1,5 +1,6 @@
 package com.example.hakimlivs.repository;
 
+import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.OrderEntity;
 import org.springframework.data.repository.CrudRepository;
 
@@ -11,4 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  * Copyright: MIT
  */
 public interface OrderEntityRepository extends CrudRepository <OrderEntity, Long> {
+
+    OrderEntity getOrderEntityById(Long id);
 }
