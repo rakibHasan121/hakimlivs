@@ -1,9 +1,13 @@
 package com.example.hakimlivs.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="customer")
@@ -20,6 +24,13 @@ public class Customer {
     private String city;
     private String phone;
     private String email;
+
+    @CreationTimestamp
+    protected LocalDate dateadded;
+
+    @UpdateTimestamp
+    protected LocalDate dateedited;
+
 
     public Customer(){
 
@@ -86,6 +97,22 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public LocalDate getDateadded() {
+        return dateadded;
+    }
+
+    public void setDateadded(LocalDate dateadded) {
+        this.dateadded = dateadded;
+    }
+
+    public LocalDate getDateedited() {
+        return dateedited;
+    }
+
+    public void setDateedited(LocalDate dateedited) {
+        this.dateedited = dateedited;
     }
 
     @Override
