@@ -1,5 +1,7 @@
 package com.example.hakimlivs.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class OrderProductJunction {
 
     @ManyToOne
     @JoinColumn(name="orderid")
+    @JsonBackReference
     private OrderEntity orderEntity;
 
     @ManyToOne

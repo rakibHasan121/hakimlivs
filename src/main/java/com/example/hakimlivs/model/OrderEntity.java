@@ -1,5 +1,6 @@
 package com.example.hakimlivs.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -20,8 +21,9 @@ public class OrderEntity {
     @JoinColumn
     private Customer customer;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    private List<OrderProductJunction> orderInProductOrderJunctionList = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<OrderProductJunction> orderedProducts = new ArrayList<>();
 
     @CreationTimestamp
     protected LocalDate dateadded;
@@ -50,13 +52,6 @@ public class OrderEntity {
         this.dateedited = dateedited;
     }
 
-    public List<OrderProductJunction> getOrderInProductOrderJunctionList() {
-        return orderInProductOrderJunctionList;
-    }
-
-    public void setOrderInProductOrderJunctionList(List<OrderProductJunction> orderInProductOrderList) {
-        this.orderInProductOrderJunctionList = orderInProductOrderList;
-    }
 
     public Long getId() {
         return id;
@@ -72,6 +67,22 @@ public class OrderEntity {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public List<OrderProductJunction> getOrderedProducts() {
+        return orderedProducts;
+    }
+
+    public void setOrderedProducts(List<OrderProductJunction> orderInProductOrderList) {
+        this.orderedProducts = orderInProductOrderList;
+    }
+
+    public void addToOrderEntityInOrderProductJunctionList(OrderProductJunction junction){
+        this.orderedProducts.add(junction);
+    }
+
+    public void removeOrderEntityInOrderProductJunctionList(OrderProductJunction junction){
+        this.orderedProducts.remove(junction);
     }
 
     @Override
