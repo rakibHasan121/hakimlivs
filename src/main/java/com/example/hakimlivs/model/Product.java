@@ -1,8 +1,6 @@
 package com.example.hakimlivs.model;
 
 import HelpClasses.PriceMath;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -21,7 +19,7 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected int id;
+    protected Long id;
     protected String title;
     @Column(name="Description", length=1500, nullable=false)
     protected String description;
@@ -35,6 +33,9 @@ public class Product {
     @UpdateTimestamp
     protected LocalDate dateedited;
     protected double weight;
+
+    @OneToMany
+    private List<OrderProductJunction> productInOrderProductJunctionList = new ArrayList<>();
 
     public Product() {
     }
@@ -52,11 +53,11 @@ public class Product {
         this.weight = weight;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -144,6 +145,7 @@ public class Product {
     public void setStockInHand(int stockInHand) {
         this.stockInHand = stockInHand;
     }
+
 
     @Override
     public String toString() {

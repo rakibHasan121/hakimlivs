@@ -27,7 +27,7 @@ public class ProductsServiceImpl implements ProductService {
 
     @Override
     public Product getProductByID(int id) {
-        return productsRepository.findById(id).orElse(null);
+        return productsRepository.findById((long)id).orElse(null);
     }
 
     @Override
@@ -49,7 +49,8 @@ public class ProductsServiceImpl implements ProductService {
     /*DELETE Method*/
     @Override
     public String deleteProduct(int id) {
-        productsRepository.deleteById(id);
+
+        productsRepository.deleteById((long) id);
         return "Product Deleted!!";
     }
 

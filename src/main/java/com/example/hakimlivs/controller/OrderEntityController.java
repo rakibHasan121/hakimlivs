@@ -2,9 +2,11 @@ package com.example.hakimlivs.controller;
 
 import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.OrderEntity;
+import com.example.hakimlivs.model.OrderProductJunction;
 import com.example.hakimlivs.model.Product;
 import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.repository.OrderEntityRepository;
+import com.example.hakimlivs.repository.OrderProductJunctionRepository;
 import com.example.hakimlivs.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +32,9 @@ public class OrderEntityController {
     @Autowired
     ProductsRepository productsRepo;
 
+    @Autowired
+    OrderProductJunctionRepository orderProductJunction;
+
     @GetMapping(path="/all")
     public Iterable <OrderEntity> getAllOrders(){
         return OERepo.findAll();
@@ -44,12 +49,15 @@ public class OrderEntityController {
     }
 
     @RequestMapping("/addproducts")
-    public OrderEntity createOrder(@RequestParam Long orderID, @RequestParam Integer productID ) {
+    public OrderEntity createOrder(@RequestParam Long orderID, @RequestParam Long productID ) {
 
         OrderEntity currentOrder = OERepo.getOrderEntityById(orderID);
         Product currentProduct = productsRepo.getProductById(productID);
 
         currentOrder.addProduct(currentProduct);
+
+        OrderProductJunction junctionTable = orderProductJunction.findOrderProductJunctionByOrderEntityIdAndProductId(orderID,productID);
+
 
         return OERepo.save(currentOrder);
     }

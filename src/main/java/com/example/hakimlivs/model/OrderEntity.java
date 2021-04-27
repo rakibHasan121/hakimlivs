@@ -1,10 +1,7 @@
 package com.example.hakimlivs.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,9 +20,8 @@ public class OrderEntity {
     @JoinColumn
     private Customer customer;
 
-    @ManyToMany (cascade = CascadeType.ALL)
-    @JoinColumn
-    private List<Product> productList = new ArrayList<>();
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<OrderProductJunction> orderInProductOrderJunctionList = new ArrayList<>();
 
     @CreationTimestamp
     protected LocalDate dateadded;
@@ -54,12 +50,12 @@ public class OrderEntity {
         this.dateedited = dateedited;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<OrderProductJunction> getOrderInProductOrderJunctionList() {
+        return orderInProductOrderJunctionList;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setOrderInProductOrderJunctionList(List<OrderProductJunction> orderInProductOrderList) {
+        this.orderInProductOrderJunctionList = orderInProductOrderList;
     }
 
     public Long getId() {
@@ -86,7 +82,4 @@ public class OrderEntity {
                 '}';
     }
 
-    public void addProduct(Product currentProduct) {
-        productList.add(currentProduct);
-    }
 }
