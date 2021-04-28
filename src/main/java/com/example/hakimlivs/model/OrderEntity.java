@@ -31,8 +31,6 @@ public class OrderEntity {
     @UpdateTimestamp
     protected LocalDate dateedited;
 
-
-
     public OrderEntity() {
     }
 

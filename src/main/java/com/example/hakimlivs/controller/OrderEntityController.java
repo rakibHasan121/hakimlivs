@@ -54,25 +54,17 @@ public class OrderEntityController {
         OrderEntity currentOrder = OrderEntityRepository.getOrderEntityById(orderID);
         Product currentProduct = productsRepository.getProductById(productID);
 
-        //säkerställer att order och produkt finns annars returneras null
         if(currentOrder != null && currentProduct != null) {
         OrderProductJunction junctionTable = orderProductJunction.findOrderProductJunctionByOrderEntityAndProduct(currentOrder, currentProduct);
             if (junctionTable == null) {
-                //sparar produkt och order i ny junction
-                junctionTable = new OrderProductJunction();
 
+                junctionTable = new OrderProductJunction();
                 junctionTable.setOrderEntity(currentOrder);
                 junctionTable.setProduct(currentProduct);
                 junctionTable.setQuantity(productQuantity);
 
-                //sparar junction table i produktens och orderns lista
-                //currentProduct.addToProductInOrderProductJunctionList(junctionTable);
                 currentOrder.addToOrderEntityInOrderProductJunctionList(junctionTable);
-
-                //sparar ner ordrar och produkter samt junction i varsitt repository
-                //productsRepository.save(currentProduct);
                 OrderEntityRepository.save(currentOrder);
-                //orderProductJunction.save(junctionTable);
 
                 return String.format("added produkt %d to order %d with quantity %d",
                         productID,

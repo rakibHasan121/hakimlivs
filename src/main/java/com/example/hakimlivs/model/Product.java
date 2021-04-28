@@ -34,9 +34,6 @@ public class Product {
     protected LocalDate dateedited;
     protected double weight;
 
-    //@OneToMany(cascade = CascadeType.ALL)
-    //private List<OrderProductJunction> productInOrderProductJunctionList = new ArrayList<>();
-
     public Product() {
     }
 
@@ -145,24 +142,6 @@ public class Product {
     public void setStockInHand(int stockInHand) {
         this.stockInHand = stockInHand;
     }
-
-    /*
-    public List<OrderProductJunction> getProductInOrderProductJunctionList() {
-        return productInOrderProductJunctionList;
-    }
-
-    public void setProductInOrderProductJunctionList(List<OrderProductJunction> productInOrderProductJunctionList) {
-        this.productInOrderProductJunctionList = productInOrderProductJunctionList;
-    }
-
-    public void addToProductInOrderProductJunctionList(OrderProductJunction junction){
-        this.productInOrderProductJunctionList.add(junction);
-    }
-
-    public void removeProductInOrderProductJunctionList(OrderProductJunction junction){
-        this.productInOrderProductJunctionList.remove(junction);
-    }
-     */
 
     @Override
     public String toString() {
