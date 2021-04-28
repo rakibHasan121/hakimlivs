@@ -75,18 +75,4 @@ public class OrderEntityController {
         }
         return "error processing request addproducts; orderid:" + orderID + " productid:" + productID;
     }
-
-
-    /*
-    @POSTMapping("/addOrder")
-    public String greeting(@RequestParam String firstname,
-                           @RequestParam String lastname, @RequestParam String address, @RequestParam String zipcode, Model model) {
-        model.addAttribute(“fname", fname); model.addAttribute(“lname", lname);
-        return "greeting.html";
-    }
-
-     */
-
-
-
 }
