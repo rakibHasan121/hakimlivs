@@ -8,8 +8,11 @@ import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.repository.OrderEntityRepository;
 import com.example.hakimlivs.repository.OrderProductJunctionRepository;
 import com.example.hakimlivs.repository.ProductsRepository;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.criteria.Order;
 
 /**
  * Created by: Ulf Nyberg
@@ -40,7 +43,7 @@ public class OrderEntityController {
         return OrderEntityRepository.findAll();
     }
 
-    @RequestMapping("/add")
+    @GetMapping("/add")
     public OrderEntity createOrder(@RequestParam Long customerID ) {
         Customer selectedCustomer = customerRepo.getCustomerById(customerID);
         OrderEntity createdOrder = new OrderEntity();
