@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
  * Time: 09:23
  * Project: hakimlivsRakib
  * Copyright: MIT
+ *
+ * Handles requests related to the order class
  */
 @RestController
 @CrossOrigin
@@ -35,11 +37,21 @@ public class OrderEntityController {
     @Autowired
     OrderProductJunctionRepository orderProductJunction;
 
+    /**
+     * Returns all orders with get mapping
+     * @return All orders in the database
+     */
     @GetMapping(path="/all")
     public Iterable <OrderEntity> getAllOrders(){
         return OrderEntityRepository.findAll();
     }
 
+    /**
+     * Requestmapping to add orders
+     *
+     * @param customerID The id of the customer owning the order
+     * @return the OrderEntity object created
+     */
     @RequestMapping("/add")
     public OrderEntity createOrder(@RequestParam Long customerID ) {
         Customer selectedCustomer = customerRepo.getCustomerById(customerID);
@@ -48,6 +60,15 @@ public class OrderEntityController {
         return OrderEntityRepository.save(createdOrder);
     }
 
+    /**
+     * Adds a product to a specific order with a quantity if
+     * the products is not already registered in the order
+     *
+     * @param orderID The id of the order
+     * @param productID The id of the product to be added
+     * @param productQuantity The number of the selected product to be added
+     * @return
+     */
     @RequestMapping("/addproducts")
     public String createOrder(@RequestParam Long orderID, @RequestParam Long productID, @RequestParam int productQuantity ) {
 

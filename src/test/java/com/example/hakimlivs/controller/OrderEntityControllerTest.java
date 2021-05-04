@@ -96,18 +96,12 @@ public class OrderEntityControllerTest {
     }
 
     @Test
-    public void addOrderTest() throws Exception {
+    public void addOrderTestIsResponding() throws Exception {
 
-        /*
         mvc.perform(MockMvcRequestBuilders.get("/order/add?customerID=1").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("""{
-                        name
-                        }"""
+                .andExpect(status().isOk());
 
-                        ));
 
-         */
     }
 
 }

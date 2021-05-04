@@ -9,6 +9,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * OrderEntity class represents an order made in a webshop.
+ */
 @Entity
 @Table(name="ordertable")
 public class OrderEntity {

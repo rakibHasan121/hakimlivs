@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
+/**
+ * OrderProductJunction is the relation between OrderEntity and Product classes.
+ * It stores the order, the product amd the quantity of the product ordered.
+ *
+ */
 @Entity
 public class OrderProductJunction {
 

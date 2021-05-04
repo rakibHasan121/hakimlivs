@@ -2,13 +2,16 @@ package com.example.hakimlivs.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
+/**
+ * Customer class represents a customer
+ *
+ */
 @Entity
 @Table(name="customer")
 public class Customer {

@@ -9,6 +9,10 @@ import org.springframework.data.repository.CrudRepository;
  * Time: 09:22
  * Project: hakimlivsRakib
  * Copyright: MIT
+ *
+ * Customer repository interface contains extra methods for retrieving data
+ * from the database.
+ *
  */
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 

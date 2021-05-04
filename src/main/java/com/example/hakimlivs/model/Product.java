@@ -13,6 +13,9 @@ import java.util.List;
  * Created by rakib
  * Date: 2021-04-12
  * Projekt: hakimlivs
+ *
+ * The product class represents a product in a webshop
+ *
  */
 @Entity
 @Table(name = "HAKIM_PRODUCTS")

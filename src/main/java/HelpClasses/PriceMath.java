@@ -3,6 +3,11 @@ package HelpClasses;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * HelperClass for making calculations with dobule.
+ * If this is not used random decimal number errors will occur.
+ *
+ */
 public class PriceMath {
 
     public static double round(double value, int places) {

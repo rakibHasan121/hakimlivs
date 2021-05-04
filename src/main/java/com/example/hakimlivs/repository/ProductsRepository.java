@@ -1,6 +1,5 @@
 package com.example.hakimlivs.repository;
 
-import com.example.hakimlivs.model.OrderEntity;
 import com.example.hakimlivs.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

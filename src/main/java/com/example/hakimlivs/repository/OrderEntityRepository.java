@@ -1,6 +1,5 @@
 package com.example.hakimlivs.repository;
 
-import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.OrderEntity;
 import org.springframework.data.repository.CrudRepository;
 
@@ -10,6 +9,9 @@ import org.springframework.data.repository.CrudRepository;
  * Time: 09:22
  * Project: hakimlivsRakib
  * Copyright: MIT
+ *
+ * OrderEntityRepository Interface contains extra methods for retrieving orders in the database.
+ *
  */
 public interface OrderEntityRepository extends CrudRepository <OrderEntity, Long> {
 

@@ -12,6 +12,9 @@ import java.util.List;
  * Created by rakib
  * Date: 2021-04-12
  * Projekt: hakimlivs
+ *
+ * Class that handles request to add remove and edit products
+ *
  */
 @RestController
 @RequestMapping("/api")
@@ -20,49 +23,86 @@ public class ProductsController {
     @Autowired
     private ProductService productService;
 
-    //Get all products
+    /**
+     * Default get request returns a simple string to check if backend is online
+     *
+     * @return
+     */
     @GetMapping("/")
     public String index() {
         return "API is up and running";
     }
 
-    //Get all products
+    /**
+     * Returns all products stored in the database
+     *
+      * @return
+     */
     @GetMapping("/products")
     public List<Product> findAllProducts() {
         return productService.getAllProducts();
     }
 
-    //Get a product by its id
+    /**
+     * Returns the product with the specified ID
+     *
+      * @param id ID of the selected product
+     * @return
+     */
     @GetMapping("/productById/{id}")
     public Product findProductById(@PathVariable int id) {
         return productService.getProductByID(id);
     }
 
-    //Get a product by its title
+    /**
+     * Finds a product based on title
+      * @param titel Title of the wanted product
+     * @return the first product with the correct title
+     */
     @GetMapping("/product/{titel}")
     public Product findProductByTitel(@PathVariable String titel) {
         return productService.getProductByName(titel);
     }
 
-    //Add a product
+    /**
+     * Post mapping that receives a product and saves it to the database.
+     *
+      * @param product
+     * @return JSON with complete information of the added product
+     */
     @PostMapping("/addproduct")
     public Product saveProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
     }
 
-    //Add list of products
+    /**
+     * Receivs a list of products and adds them to the databse.
+     *
+      * @param products a list of products
+     * @return the complete list of the added products
+     */
     @PostMapping("/addproducts")
     public List<Product> saveProducts(@RequestBody List<Product> products) {
         return productService.saveProducts(products);
     }
 
-    //Delete a product
+    /**
+     * Deletes the product with the ID
+     * @param id id of the product to be deleted
+     * @return the deleted product
+     */
     @DeleteMapping("/delete/{id}")
     public String deleteProduct(@PathVariable int id) {
         return productService.deleteProduct(id);
     }
 
-    //Update a product
+    /**
+     * updating a product. If the product does not exist it
+     * creates it.
+     *
+      * @param product the updated product
+     * @return the updated/created product is returned
+     */
     @PutMapping("/update")
     public Product updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
