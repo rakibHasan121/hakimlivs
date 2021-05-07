@@ -107,4 +107,13 @@ public class ProductsController {
     public Product updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
     }
+
+    /**
+     * Delete all products from the server
+     * @return
+     */
+    @DeleteMapping("/deleteallproducts")
+    public String deleteAllProducts() {
+        return productService.deleteAllProducts();
+    }
 }

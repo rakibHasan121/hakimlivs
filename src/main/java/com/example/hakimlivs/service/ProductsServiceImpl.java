@@ -63,4 +63,11 @@ public class ProductsServiceImpl implements ProductService {
         existingProduct.setWeight(product.getWeight());
         return productsRepository.save(existingProduct);
     }
+
+    /*DELETE all products Method*/
+    @Override
+    public String deleteAllProducts() {
+        productsRepository.deleteAll();
+        return "All products have been deleted successfully";
+    }
 }
