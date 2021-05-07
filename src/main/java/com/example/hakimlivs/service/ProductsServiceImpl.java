@@ -1,7 +1,11 @@
 package com.example.hakimlivs.service;
 
 import com.example.hakimlivs.model.Product;
+import com.example.hakimlivs.repository.CustomerRepository;
+import com.example.hakimlivs.repository.OrderEntityRepository;
+import com.example.hakimlivs.repository.OrderProductJunctionRepository;
 import com.example.hakimlivs.repository.ProductsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +19,17 @@ import java.util.List;
 public class ProductsServiceImpl implements ProductService {
     private final ProductsRepository productsRepository;
 
+
     public ProductsServiceImpl(ProductsRepository productsRepository) {
         this.productsRepository = productsRepository;
     }
+
+    @Autowired
+    private OrderProductJunctionRepository orderProductJunctionRepository;
+    @Autowired
+    private CustomerRepository customerRepo;
+    @Autowired
+    private OrderEntityRepository orderEntityRepository;
 
     /*GET Method*/
     @Override
@@ -67,7 +79,12 @@ public class ProductsServiceImpl implements ProductService {
     /*DELETE all products Method*/
     @Override
     public String deleteAllProducts() {
+        orderProductJunctionRepository.deleteAll();
+        orderEntityRepository.deleteAll();
+        customerRepo.deleteAll();
         productsRepository.deleteAll();
         return "All products have been deleted successfully";
     }
+
+
 }
