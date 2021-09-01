@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "email": "eva@eva.com",
+        "firstName": "Eva",
+        "lastName": "Evasson",
+        "address": "Gatugatan 1A",
+        "zipcode": 21121,
+        "city": "Malmö",
+        "password": "",
+        "VIP": true,
+        "active": true,
+        "created": "2019-12-12",
+        "edited": "2019-12-12"
+    },
+    {
+        "id": 2,
+        "email": "pal@pal.com",
+        "firstName": "Pål",
+        "lastName": "Pålsson",
+        "address": "Gatugatan 4A",
+        "zipcode": 21121,
+        "city": "Malmö",
+        "password": "",
+        "VIP": false,
+        "active": false,
+        "created": "2010-12-12",
+        "edited": "2019-12-12"
+    },
+    {
+        "id": 3,
+        "email": "steve@steve.com",
+        "firstName": "Steve",
+        "lastName": "Stevesson",
+        "address": "Gatugatan 23A",
+        "zipcode": 12143,
+        "city": "Stockholm",
+        "password": "",
+        "VIP": true,
+        "active": true,
+        "created": "2019-12-12",
+        "edited": "2020-12-12"
+    },
+    {
+        "id": 4,
+        "email": "sabrina@sabrina.com",
+        "firstName": "Sabrina",
+        "lastName": "Sabrinasson",
+        "address": "Gatugatan 111A",
+        "zipcode": 21101,
+        "city": "Helsingborg",
+        "password": "",
+        "VIP": true,
+        "active": true,
+        "created": "2010-12-12",
+        "edited": "2019-12-12"
+    }
+]

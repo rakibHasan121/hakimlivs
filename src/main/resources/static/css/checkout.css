@@ -1,0 +1,167 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template/shop-homepage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#logo {
+    width: 265px;
+    height: 64px;
+}
+
+.checkout-left {
+    order: 1;
+}
+
+.checkout-center {
+  order: 2;
+}
+
+.checkout-right {
+  order: 3;
+}
+
+.cart-item-sum{
+    text-align: end;
+  }
+
+.container-order {
+    position: relative;
+    text-align: center;
+}
+
+.summary-table {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgb(19, 19, 19);
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 0.5em;
+}
+
+table tbody > :nth-child(2n-1) {
+  background-color: #cec9c1;
+}
+
+.table-head {
+  background-color: #ffc400;
+}
+
+.button-center {
+    text-align: center;
+}
+
+#finish-checkout-btn-two {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+#footer-check {
+  margin-top : 40px;
+  padding: 0.5rem;
+}
+
+.undecorated-link {
+  text-decoration: none;
+  color: #ffc400;
+
+}
+.undecorated-link:hover {
+  text-decoration: none;
+  color: #fad96c;
+
+}
+
+.customer-container {
+  width: 500px;
+  margin: auto;
+  border: 3px solid #41443f;
+  padding: 25px;
+  max-width: 100%;
+  height: auto;
+}
+
+#total-sum {
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+@media (min-width: 992px) {
+  .nav-category{
+    display: block;
+  }
+  .nav-dropdown{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  table th,
+  table td {
+    padding: 0em;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+    margin-bottom: 3%;
+  }
+
+  table td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    position: absolute;
+    left: 6px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  td:nth-child(1):before {content: "Produkt";}
+  td:nth-child(2):before {content: "Pris per produkt";}
+  td:nth-child(3):before {content: "Antal";}
+  td:nth-child(4):before {content: "Ta bort";}
+  td:nth-child(5):before {content: "Pris";}
+
+  .cart-item-sum {
+    text-align: center;
+  }
+  .summary-table {
+    padding: 0px;
+  }
+  .customer-container{
+    border: 0;
+    border-top: 3px solid #41443f;
+  }
+}

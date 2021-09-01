@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/hakimLogoSmall.png">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/orderbekraftelse.css" rel="stylesheet">
+    <title>Orderbekräftelse</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+            <a href="../templates/index.html"><img src="images/hakimLogo.png" alt="Hakim Livs Logo" id="logo"></a>
+            <button type="button" class="log-in-button btn btn-warning" data-toggle="modal" data-target=".login-register-form" disabled>Logga in</button>
+
+            <div class="collapse navbar-collapse sticky-top" id="navbarResponsive">
+
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="text-center">Tack för din order! Din order skickas snarast!</h2>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="header-productName">Produkt</th>
+                    <th scope="col" class="header-productPrice">Pris(kr)</th>
+                    <th scope="col" class="header-productQty">Antal</th>
+                    <th scope="col" class="header-productSum">Summa(kr)</th>
+                </tr>
+            </thead>
+            <tbody class="produkter">
+
+            </tbody>
+        </table>
+
+        <div class="text-center">
+          <h4>
+            <strong>Totalt(kr): </strong>
+            <span class="total"></span>
+          </h4>
+
+        </div>
+    </div>
+    <!-- Footer -->
+  <footer class="bg-dark mt-auto" id="footer-bekraft">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 left">
+          <a href="history.html" class="undecorated-link">Hakim Livs - Vår Historia</a>
+        </div>
+        <div class="col-lg-4 center">
+          <p class="m-0 text-white">Copyright &copy; Hakim Livs 2021</p>
+        </div>
+        <div class="col-lg-4 right">
+           <div class="m-0 text-white" id="kontaktUppgifter">
+           </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+  </footer>
+    <script src="js/sidofot-uppgifter.js" async></script>
+    <script src="js/orderbekraftelse.js"></script>
+
+</body>
+
+</html>

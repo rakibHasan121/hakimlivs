@@ -1,0 +1,98 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template/shop-homepage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+#logo {
+    width: 265px;
+    height: 64px;
+}
+
+
+#footer-bekraft {
+    margin-top : 40px;
+    padding: 0.5rem;
+}
+
+.undecorated-link {
+    text-decoration: none;
+    color: #ffc400;
+  
+  }
+.undecorated-link:hover {
+    text-decoration: none;
+    color: #fad96c;
+  
+}
+
+.log-in-button {
+    margin-left: 5%;
+}
+
+.product-namn{
+    text-align: left;
+}
+.product-price{
+    white-space: nowrap;
+    text-align: right;
+}
+.product-total{
+    white-space: nowrap;
+    text-align: right;
+}
+.product-quantity{
+    text-align: right;
+}
+
+.text-center{
+    padding-top: 12px;
+    padding-bottom: 10px;
+}
+
+.header-productName{
+    text-align: left;
+}
+
+.header-productPrice{
+    text-align: right;
+}
+
+.header-productQty{
+    text-align: right;
+}
+
+.header-productSum{
+    text-align: right;
+}
+
+.total{
+    text-align: right;
+    margin-right: 1%;
+}
+text-right{
+    text-align: right;
+}
+
+.table th, .table td {
+    padding: 0.25rem;
+}
+
+@media screen and (max-width: 425px) {
+    .container {
+        padding: 0;
+    }
+    .total{
+        margin-right: 3%;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .total{
+        margin-right: 2%;
+    }
+    
+}
+
+
+

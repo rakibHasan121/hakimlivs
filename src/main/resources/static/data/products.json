@@ -1,0 +1,202 @@
+[
+    {
+        "title": "Illustrerad Vetenskap",
+        "description": "Nordens största magasin om natur, vetenskap och teknik. Prenumerera på Illustrerad Vetenskap och låt tidningen ta med dig på en resa i en fascinerande värld av upptäckter och nya rön.",
+        "image": "https://i.imgur.com/O43McBw.png",
+        "price": 79,
+        "productprice": 40,
+        "category": "Tidskrifter",
+        "stockInHand":50,
+        "weight": 800
+    },
+    {
+        "title": "Avfallspåse",
+        "description": "Våra avfallspåsar finns i vanlig plast samt det miljövänligare alternativet Biopåsar - 100% komposterbara påsar som är helt biologiskt nedbrytbara.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h05/hab/8899999203358/07340083452468.jpg_1486849837642_master_axfood_400",
+        "price": 14.9,
+        "productprice": 10,
+        "category": "Städ",
+        "stockInHand":50,
+        "weight": 135
+    },
+    {
+        "title": "Allrent Citron Allrengöring",
+        "description": "Allrent Citron - rengör hemmets alla ytor.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/hbb/hd2/9137662230558/7340083438394_1526914224598_master_axfood_400",
+        "price": 18.50,
+        "productprice": 10,
+        "category": "Städ",
+        "stockInHand":50,
+        "weight": 2500
+    },
+    {
+        "title": "Badrumsspray",
+        "description": "Rikta inte strålen mot ögonen. Skyddas mot frost",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h22/hba/9560446304286/7340083434907_1566553545492_master_axfood_400",
+        "price": 11.90,
+        "productprice": 3.99,
+        "category": "Städ",
+        "stockInHand":50,
+        "weight": 200
+    },
+    {
+        "title": "Mopphink med Urvridare",
+        "description": "Mopphink komplett med urvridare, 15 liter.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/hff/h97/9257934094366/7340083429248_1539939648297_master_axfood_400",
+        "price": 65.9,
+        "productprice": 21.21,
+        "category": "Städ",
+        "stockInHand":50,
+        "weight": 500
+    },
+    {
+        "title": "Original Antiperspirant Deodorant Spray",
+        "description": "Dove Original deodorant spray är en pålitlig klassiker. Helt enkelt en perfekt antiperspirant deodorant för den känsliga huden under armarna då den innehåller 1/4 fuktighetscrème som vårdar och skyddar mot irriterad hud som lätt kan uppstå vid rakning. Den ger ett 48 timmar effektivt skydd mot svett och lukt samtidigt som den låter huden andas.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h51/hca/10374490226718/8000630040843_1596714006898_master_axfood_400",
+        "price": 28.90,
+        "productprice": 18.50,
+        "category": "Hygienartiklar",
+        "stockInHand":50,
+        "weight": 145
+    },
+    {
+        "title": "Ultra Normal",
+        "description": "Always Ultra Normal (Storlek 1) sanitetsbindor med vingar med InstantDry-system absorberar vätska på sekunder. De låser in vätska för upp till 100 % skydd så du kan känna dig säker. Trots att Always Ultra sanitetsbindor bara är 3 mm tjocka för din bekvämlighet, ger de dig ändå ett oslagbart skydd under mensen. Hitta rätt skydd för dig med Always My Fit, ett skräddarsytt storlekssystem för att hjälpa dig hitta ALWAYS bästa mensskydd baserat både på ditt flöde och trosstorlek. Känn dig säker hur du än rör dig. Testa Always Ultra Secure Night (Storlek 4), Always bästa sanitetsbindor för skydd på natten.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/hb0/h19/9738838900766/4015400699873_1576753834904_master_axfood_400",
+        "price": 9.99,
+        "productprice": 3.30,
+        "category": "Hygienartiklar",
+        "stockInHand":50,
+        "weight": 100
+    },
+    {
+        "title": "Deodorant Aloe Vera Roll-on",
+        "description": "Rexona Aloe Vera antiperspirant deodorant roll on. Den har en lätt och fräsch doft som ger en lugnande och svalkande känsla och ett effektivt svett- och luktskydd i upp till 48 timmar. Innehåller Rexonas unika MOTIONSENSE™-teknologi som reagerar på kroppsrörelse. Så ju mer du rör dig, desto mer skyddar den.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h8d/h9c/9943227367454/50097838_1585325453533_master_axfood_400",
+        "price": 26.99,
+        "productprice": 13.90,
+        "category": "Hygienartiklar",
+        "stockInHand":50,
+        "weight": 200
+    },
+    {
+        "title": "Militär Historia",
+        "description": "Tidningen Militär Historia är en tidskrift som berättar allt om de utmärkande historiska händelserna. Från avgörande slag till de största fältherrarna, vapnen samt doktrinerna som korade vinnaren.",
+        "image": "https://i.imgur.com/S2rNTee.png",
+        "price": 64,
+        "productprice": 40,
+        "category": "Tidskrifter",
+        "stockInHand":50,
+        "weight": 1750
+    },
+    {
+        "title": "Hygienisk Mot Dålig Lukt Tvättmaskinsrengörin",
+        "description": "Dr.Beckmanns Tvättmaskinsrengöring rengör grundligt din tvättmaskin och tar bort dålig lukt. Den avlägsnar kalk, smuts, skräp och rester även på platser som är svåra att nå, som inne i maskinen. Detta tack vara sin särskilda sammansättning med aktivt kol, som frigör avlagringar och sedan samlar upp och avlägsnar dem effektivt. Vid regelbunden användning kommer trumma, ledningar, slangar, gummitätningar och värmare att hållas rena och väl underhållna. Detta skyddar inte bara maskinen, utan möjliggör också en energieffektiv tvätt och en lång livslängd på maskinen.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h59/h5a/9973624995870/4008455425115_1586163053428_master_axfood_400",
+        "price": 34.90,
+        "productprice": 30.50,
+        "category": "Hygienartiklar",
+        "stockInHand":50,
+        "weight": 830
+    },
+    {
+        "title": "Ahlgrens Bilar Original",
+        "description": "Ahlgrens bilar Original är en favorit bland godispåsar. De mjuka bilarna erbjuds här i de klassiska Ahlgrens bilar färgerna rosa, vit och grön. Under åren som gått har det tillkommit en del nya modeller men originalets smak är och förblir orörd. Har man Sveriges godaste bil så har man!",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h82/h9a/10864167714846/7310350109906_1607425250859_master_axfood_400",
+        "price": 12.90,
+        "productprice": 5.23,
+        "category": "Godis",
+        "stockInHand":50,
+        "weight": 430
+    },
+    {
+        "title": "Mjölkchoklad Chokladkaka",
+        "description": "Marabou mjölkchoklad- Marabou Mjölkchoklad är Sveriges allra mest älskade chokladkaka. Den har funnits i sortimentet sedan Marabou grundades och är fortfarande lika populär.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h7d/h0d/11160135794718/7310511210403_1612448135617_master_axfood_400",
+        "price": 18.90,
+        "productprice": 10.50,
+        "category": "Godis",
+        "stockInHand":50,
+        "weight": 3230
+    },
+    {
+        "title": "Modern Psykologi",
+        "description": "Modern Psykologi är tidningen för dig som är nyfiken på dig själv och andra. Här kan du läsa om allt som har med tänkande, känslor och relationer att göra. Varje nummer är fullt med fördjupande reportage, personliga möten, aktuella rön och matnyttiga guider baserade på psykologisk forskning. Du hittar också en fyllig avdelning med frågor och svar från våra legitimerade psykologer.",
+        "image": "https://i.imgur.com/xjQYGqY.png",
+        "price": 99,
+        "productprice": 80,
+        "category": "Tidskrifter",
+        "stockInHand":50,
+        "weight": 7770
+    },
+    {
+        "title": "Fin 70% Premium Havssalt Pekan",
+        "description": "Marabou Premium Havssalt- En mörk choklad med 70% kakao och en spännande smak av havssalt och pekannöt.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/hbc/h71/9049833603102/07622300544010.jpg_1516365350615_master_axfood_400",
+        "price": 19.50,
+        "productprice": 7,
+        "category": "Godis",
+        "stockInHand":50,
+        "weight": 25000
+    },
+    {
+        "title": "Kitkat",
+        "description": "KitKat-originalet. En härlig chokladbar av ett krispigt rån täckt med mjölkchoklad.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/hfc/hf4/9954907422750/40052441_1585662346824_master_axfood_400",
+        "price": 5.99,
+        "productprice": 2.50,
+        "category": "Godis",
+        "stockInHand":50,
+        "weight": 2100
+    },
+    {
+        "title": "Paprika Burk",
+        "description": "Paprika kommer från samma capsicumväxt som cayennepeppar, piri-piri och andra paprika-/chilifrukter. Paprikapulver är torkad och mald paprika och används världen över för att sätta smak och färg på maträtter.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/hd2/h39/8871321010206/07310394002454.jpg_1472562358651_master_axfood_400",
+        "price": 17.50,
+        "productprice": 7,
+        "category": "Skafferi",
+        "stockInHand":50,
+        "weight": 1800
+    },
+    {
+        "title": "Tomatsoppa",
+        "description": "Tomatsoppa med basilika och oregano.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h78/hd6/9230318338078/8715700112404_1537045121520_master_axfood_400",
+        "price": 16,
+        "productprice": 10,
+        "category": "Skafferi",
+        "stockInHand":50,
+        "weight": 1670
+    },
+    {
+        "title": "Havregryn",
+        "description": "Nyckelhålsmärkta havregryn. Rika på fibrer, vitaminer och mineraler. Perfekta till bakningen eller gröten.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/h86/h90/9214209196062/7310130321085_1535378747458_master_axfood_400",
+        "price": 12,
+        "productprice": 5,
+        "category": "Skafferi",
+        "stockInHand":50,
+        "weight": 300
+    },
+    {
+        "title": "Världens Historia",
+        "description": "Vi älskar historia! Den här tidningen kommer ta dig till världshistoriens stora och små händelser, man får läsa allt om hur man gräver fram unika människor med deras fantastiska bakgrunder och man får lär sig massor om deras dramatiska händelser som hänt dom. Vi lär er allt om det förflutna och de fascinerande berättelser med unika illustrationer som kommer ge ett helt nytt perspektiv, både hur dåtiden och nutiden har formats under historians gång.",
+        "image": "https://i.imgur.com/Hcl8vm8.png",
+        "price": 79,
+        "productprice": 40,
+        "stockInHand":50,
+        "category": "Tidskrifter",
+        "weight": 250
+    },
+    {
+        "title": "Olivolja Extra Virgin",
+        "description": "Fontana Clasíco är en olivolja med klassisk medelhavskaraktär. En god neutral basolja som passar till det mesta. Bra till marinader och dressingar.",
+        "image": "https://d2rfo6yapuixuu.cloudfront.net/hb0/he8/10450017353758/7316150670271_1598601671943_master_axfood_400",
+        "price": 47.50,
+        "productprice": 36,
+        "category": "Skafferi",
+        "stockInHand":50,
+        "weight": 370
+    }
+]
