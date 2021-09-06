@@ -39,11 +39,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/user/signup").permitAll()
-                .antMatchers("/swagger-ui/*", "/swagger-ui.html", "/webjars/**", "/v2/**", "/swagger-resources/**").permitAll()
-
-                .antMatchers("/admin/hello").hasRole("ADMIN")
-                .antMatchers("/customer/hello").hasRole("CUSTOMER")
+                .antMatchers("/*").permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(filter)
                 .addFilter(jwtAuthorizationFilter)
