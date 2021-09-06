@@ -11,6 +11,8 @@ services:
 
   api_service:
     build: .
+    image: hakimlivs
+    restart: always
     container_name: hakimlivs
     ports:
       - "8080:8080"
