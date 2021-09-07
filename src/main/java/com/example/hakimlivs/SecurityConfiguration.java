@@ -39,7 +39,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/*").permitAll()
+                .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*").permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(filter)
                 .addFilter(jwtAuthorizationFilter)
