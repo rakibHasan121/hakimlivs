@@ -1,12 +1,13 @@
 package com.example.hakimlivs;
 
 import com.example.hakimlivs.application.SignupService;
+import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.model.User;
-import com.example.hakimlivs.persistance.InMemoryUserRepository;
 import com.example.hakimlivs.repository.UserRepository;
 import com.example.hakimlivs.security.JWTIssuer;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,18 +29,22 @@ public class AppConfiguration {
     @Value("${security.validMinutes}")
     private Integer validMinutes;
 
+    @Autowired
+    private final UserRepository userRepository;
 
-    @Bean
-    public UserRepository userRepository(BCryptPasswordEncoder passwordEncoder) {
-        UserRepository userRepository = new InMemoryUserRepository();
-        userRepository.save(new User("admin", passwordEncoder.encode("password"), List.of("ADMIN")));
-        return userRepository;
+    public AppConfiguration(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
+
+//    @Bean
+//    public UserRepository userRepository2(BCryptPasswordEncoder passwordEncoder) {
+//        userRepository.save(new User("admin", passwordEncoder.encode("password"), Role.ADMIN));
+//        return userRepository;
+//    }
 
     @Bean
     public SignupService signupService(UserRepository userRepository) {
-        SignupService signupService = new SignupService(userRepository);
-        return signupService;
+        return new SignupService(userRepository);
     }
 
     @Bean

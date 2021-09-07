@@ -8,11 +8,11 @@ package com.example.hakimlivs.repository;
  * Copyright: MIT
  */
 import com.example.hakimlivs.model.User;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface UserRepository {
-    void save(final User user);
-
-    Optional<User> findById(final String userName);
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findUserById(Long id);
+    User findUserByUsername(String username);
 }

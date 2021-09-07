@@ -1,5 +1,6 @@
 package com.example.hakimlivs.application;
 
+import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.model.User;
 import com.example.hakimlivs.repository.UserRepository;
 import org.slf4j.Logger;
@@ -16,9 +17,9 @@ public class SignupService {
         this.userRepository = userRepository;
     }
 
-    public void signUp(final String username, final String password, final List<String> roles) {
+    public void signUp(final String username, final String password, final Role role) {
         LOG.info("Signing up user {}", username);
-        final User user = new User(username, password, roles);
+        final User user = new User(username, password, role);
         userRepository.save(user);
     }
 }

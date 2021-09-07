@@ -1,5 +1,6 @@
 package com.example.hakimlivs.security;
 
+import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -43,7 +44,7 @@ public class JWTIssuer {
         Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
 
         String authorities = (String) claims.get("authorities");
-        List<String> roles = Arrays.stream(authorities.split(",")).map(r -> r.substring(5)).collect(Collectors.toList());
-        return new User(claims.getSubject(), null, roles);
+        List<Role> roles = Arrays.stream(authorities.split(",")).map(r -> r.substring(5)).map(Role::valueOf).collect(Collectors.toList());
+        return new User(claims.getSubject(), null, roles.get(0));
     }
 }

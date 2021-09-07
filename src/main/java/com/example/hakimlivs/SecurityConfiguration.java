@@ -49,7 +49,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(s -> userRepo.findById(s).orElseThrow()).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userRepo::findUserByUsername).passwordEncoder(passwordEncoder);
     }
 
 }

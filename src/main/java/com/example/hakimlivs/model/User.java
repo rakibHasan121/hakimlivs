@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.*;
 import java.util.*;
 
 /**
@@ -13,24 +14,33 @@ import java.util.*;
  * Project: hakimlivs
  * Copyright: MIT
  */
+
+@Entity
 public class User implements UserDetails {
 
+    @Id
+    @GeneratedValue
+    private Long id;
     private String username;
     private String password;
-    private List<String> roles;
+    private Role role;
 
-    public User(String username, String password, List<String> roles) {
+    public User(String username, String password, Role role) {
         this.username = username;
         this.password = password;
-        this.roles = new ArrayList<>(roles);
+        this.role = role;
+    }
+
+    public User() {
+
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> setAuths = new HashSet<>();
-        for (String userRole : roles) {
-            setAuths.add(new SimpleGrantedAuthority("ROLE_" + userRole));
-        }
+
+        setAuths.add(new SimpleGrantedAuthority("ROLE_" + role));
+
 
         return Collections.unmodifiableSet(setAuths);
     }

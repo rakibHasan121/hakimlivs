@@ -1,5 +1,6 @@
 package com.example.hakimlivs.api;
 
+import com.example.hakimlivs.model.Role;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -8,12 +9,12 @@ import java.util.List;
 public class SignUpRequestDto {
     private final String username;
     private final String password;
-    private final List<String> roles;
+    private final Role role;
 
-    public SignUpRequestDto(String username, String password, List<String> roles) {
+    public SignUpRequestDto(String username, String password, Role role) {
         this.username = username;
         this.password = password;
-        this.roles = List.copyOf(roles);
+        this.role = role;
     }
 
 
@@ -25,7 +26,7 @@ public class SignUpRequestDto {
         return username;
     }
 
-    public List<String> getRoles() {
-       return List.copyOf(roles);
+    public Role getRole() {
+       return role;
     }
 }
