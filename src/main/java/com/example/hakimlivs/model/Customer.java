@@ -2,10 +2,8 @@ package com.example.hakimlivs.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
@@ -28,6 +26,17 @@ public class Customer {
     private String phone;
     private String email;
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public String getPassword() {
         return password;
