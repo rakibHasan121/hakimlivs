@@ -2,6 +2,7 @@ package com.example.hakimlivs.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,17 +19,30 @@ public class Customer {
     @GeneratedValue
     private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String email;
+
     private String firstname;
     private String lastname;
     private String address;
     private String zipcode;
     private String city;
     private String phone;
-    private String email;
     private String password;
+
 
     @Enumerated(EnumType.STRING)
     private Role role;
+    @CreationTimestamp
+    protected LocalDate dateadded;
+
+    @UpdateTimestamp
+    protected LocalDate dateedited;
+
+
+    public Customer(){
+
+    }
 
     public Role getRole() {
         return role;
@@ -42,21 +56,7 @@ public class Customer {
         return password;
     }
 
-    @CreationTimestamp
-    protected LocalDate dateadded;
 
-    @UpdateTimestamp
-    protected LocalDate dateedited;
-
-
-    public Customer(){
-
-    }
-
-    public Customer(String email, String password){
-        this.email = email;
-        this.password = password;
-    }
 
     public Long getId() {
         return id;

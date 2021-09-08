@@ -17,4 +17,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
     Customer getCustomerById(Long id);
+    Customer findCustomerByEmail(String email);
 }

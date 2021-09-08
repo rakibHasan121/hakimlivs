@@ -224,8 +224,7 @@
             </div>
 
 <!--            <form th:action="@{http://localhost:8080/customer/add}" onsubmit="return pwdcheck()" method="post" th:object="${customer}">-->
-            <form th:action="@{http://localhost:8080/customer/add}" method="post" th:object="${customer}">
-
+            <form th:action="@{http://localhost:8080/customer/add}" onsubmit="return pwdcheck()" method="post" th:object="${customer}">
               <div class="form-group">
                 <label for="firstname">Ditt förnamn:</label>
                 <input th:field="*{firstname}" type="text" minlength="2" class="form-control" id="firstname"
@@ -278,14 +277,14 @@
                        title="Lösenordet måste innehålla stora och små bokstäver, minst en siffra samt vara minst 8 karaktärer långt"
                        required>
               </div>
-<!--              <div class="form-group">-->
-<!--                <label for="newpwd2">Bekräfta lösenord:</label>-->
-<!--                <input type="password" class="form-control" id="newpwd2"-->
-<!--                       placeholder="Bekräfta ditt lösenord" name="newpwd2"-->
-<!--                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
-<!--                       title="Lösenordet måste innehålla stora och små bokstäver, minst en siffra samt vara minst 8 karaktärer långt"-->
-<!--                       required>-->
-<!--              </div>-->
+              <div class="form-group">
+                <label for="newpwd2">Bekräfta lösenord:</label>
+                <input type="password" class="form-control" id="newpwd2"
+                       placeholder="Bekräfta ditt lösenord" name="newpwd2"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       title="Lösenordet måste innehålla stora och små bokstäver, minst en siffra samt vara minst 8 karaktärer långt"
+                       required>
+             </div>
               <button type="submit" class="btn btn-warning">Registrera dig</button>
               <br>
             </form>

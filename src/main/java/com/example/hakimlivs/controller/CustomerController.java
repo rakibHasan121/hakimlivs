@@ -1,9 +1,7 @@
 package com.example.hakimlivs.controller;
-
 import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.repository.CustomerRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +21,15 @@ public class CustomerController {
     @PostMapping("/add")
     public String saveCustomer(Customer customer) {
         customer.setRole(Role.CUSTOMER);
-        customerRepo.save(customer);
-        return "redirect:../index.html";
-    }
 
+        Customer oldCustomer = customerRepo.findCustomerByEmail(customer.getEmail());
+
+        if(oldCustomer == null){
+            customerRepo.save(customer);
+            return "redirect:/";
+        }else {
+            return "redirect:/";
+        }
+
+    }
 }
