@@ -5,13 +5,14 @@ import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.repository.CustomerRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * Handles requests related to the customer class
  */
 
-@RestController
+@Controller
 @CrossOrigin
 @RequestMapping(path="/customer")
 public class CustomerController {
@@ -20,9 +21,10 @@ public class CustomerController {
     private CustomerRepository customerRepo;
 
     @PostMapping("/add")
-    public Customer saveCustomer(@RequestBody Customer customer) {
+    public String saveCustomer(Customer customer) {
         customer.setRole(Role.CUSTOMER);
-        return customerRepo.save(customer);
+        customerRepo.save(customer);
+        return "redirect:../index.html";
     }
 
 }

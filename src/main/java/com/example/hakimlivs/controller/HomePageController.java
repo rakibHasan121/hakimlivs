@@ -1,6 +1,8 @@
 package com.example.hakimlivs.controller;
 
+import com.example.hakimlivs.model.Customer;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @CrossOrigin
 public class HomePageController {
-    @GetMapping("/index.html")
-    public String index() {
-        return "index.html";
+    @GetMapping("/")
+    public String index(Model model) {
+
+        model.addAttribute("customer",new Customer());
+
+        return "index";
     }
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
-
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -224,67 +223,69 @@
                    style="width:120px;height:120px;">
             </div>
 
-            <form action="/" onsubmit="return pwdcheck()">
+<!--            <form th:action="@{http://localhost:8080/customer/add}" onsubmit="return pwdcheck()" method="post" th:object="${customer}">-->
+            <form th:action="@{http://localhost:8080/customer/add}" method="post" th:object="${customer}">
+
               <div class="form-group">
                 <label for="firstname">Ditt förnamn:</label>
-                <input type="text" minlength="2" class="form-control" id="firstname"
+                <input th:field="*{firstname}" type="text" minlength="2" class="form-control" id="firstname"
                        placeholder="Skriv ditt förnamn" name="firstname"
                        pattern="^(?![\s.]+$)[A-Za-zÅÄÖåäö\s.]*$" required>
               </div>
 
               <div class="form-group">
                 <label for="lastname">Ditt efternamn:</label>
-                <input type="text" minlength="2" class="form-control" id="lastname"
+                <input th:field="*{lastname}" type="text" minlength="2" class="form-control" id="lastname"
                        placeholder="Skriv ditt efternamn" name="lastname"
                        pattern="^(?![\s.]+$)[A-Za-zÅÄÖåäö\s.]*$" required>
               </div>
 
               <div class="form-group">
                 <label for="address">Gatuadress:</label>
-                <input type="text" class="form-control" id="address" placeholder="Skriv din gatuadress"
+                <input th:field="*{address}" type="text" class="form-control" id="address" placeholder="Skriv din gatuadress"
                        name="address" pattern="(?!^ +$)^.+$" required>
               </div>
 
               <div class="form-group">
                 <label for="zipcode">Postnummer:</label>
-                <input type="text" minlength="5" maxlength="5" pattern="[0-9]*" class="form-control"
+                <input th:field="*{zipcode}" type="text" minlength="5" maxlength="5" pattern="[0-9]*" class="form-control"
                        id="zipcode" placeholder="Skriv ditt postnummer" name="zipcode" required>
               </div>
 
               <div class="form-group">
                 <label for="city">Ort:</label>
-                <input type="text" class="form-control" id="city" placeholder="Skriv din ort"
+                <input th:field="*{city}" type="text" class="form-control" id="city" placeholder="Skriv din ort"
                        name="city" pattern="^(?![\s.]+$)[A-Za-zÅÄÖåäö\s.]*$" required>
               </div>
 
               <div class="form-group">
                 <label for="phonenumber">Telefon:</label>
-                <input type="text" pattern="[0-9]*" class="form-control" id="phonenumber"
+                <input th:field="*{phone}" type="text" pattern="[0-9]*" class="form-control" id="phonenumber"
                        placeholder="Skriv ditt telefonnummer" name="phonenumber"
                        title="Skriv ditt telefonnummer utan bindestreck" required>
               </div>
 
               <div class="form-group">
                 <label for="newemail">Email:</label>
-                <input type="email" class="form-control" id="newemail" placeholder="Skriv din email"
+                <input th:field="*{email}" type="email" class="form-control" id="newemail" placeholder="Skriv din email"
                        name="newemail" required>
               </div>
               <div class="form-group">
                 <label for="newpwd">Lösenord:</label>
-                <input type="password" class="form-control" id="newpwd"
+                <input th:field="*{password}" type="password" class="form-control" id="newpwd"
                        placeholder="Skriv ditt lösenord" name="newpwd"
                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                        title="Lösenordet måste innehålla stora och små bokstäver, minst en siffra samt vara minst 8 karaktärer långt"
                        required>
               </div>
-              <div class="form-group">
-                <label for="newpwd2">Bekräfta lösenord:</label>
-                <input type="password" class="form-control" id="newpwd2"
-                       placeholder="Bekräfta ditt lösenord" name="newpwd2"
-                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                       title="Lösenordet måste innehålla stora och små bokstäver, minst en siffra samt vara minst 8 karaktärer långt"
-                       required>
-              </div>
+<!--              <div class="form-group">-->
+<!--                <label for="newpwd2">Bekräfta lösenord:</label>-->
+<!--                <input type="password" class="form-control" id="newpwd2"-->
+<!--                       placeholder="Bekräfta ditt lösenord" name="newpwd2"-->
+<!--                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
+<!--                       title="Lösenordet måste innehålla stora och små bokstäver, minst en siffra samt vara minst 8 karaktärer långt"-->
+<!--                       required>-->
+<!--              </div>-->
               <button type="submit" class="btn btn-warning">Registrera dig</button>
               <br>
             </form>
