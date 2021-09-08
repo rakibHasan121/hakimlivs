@@ -3,6 +3,7 @@ package com.example.hakimlivs.application;
 import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.repository.CustomerRepository;
+import com.example.hakimlivs.security.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,15 @@ public class CustomerService {
         newCustomer.setPassword(passwordEncoder.encode(customer.getPassword()));
         newCustomer.setRole(Role.CUSTOMER);
         return customerRepository.save(newCustomer);
+    }
+
+    public boolean login(UserDto userDto) throws Exception {
+        if (!emailExists(userDto.getUsername())) {
+            //TODO: Lägg till ordentlig felsökning
+            return false;
+        }
+        Customer customer = customerRepository.findCustomerByEmail(userDto.getUsername());
+        return passwordEncoder.matches(userDto.getPassword(), customer.getPassword());
     }
 
     private boolean emailExists(String email) {

@@ -1,6 +1,7 @@
 package com.example.hakimlivs.controller;
 
 import com.example.hakimlivs.model.Customer;
+import com.example.hakimlivs.security.UserDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,7 +19,7 @@ public class HomePageController {
     public String index(Model model) {
 
         model.addAttribute("customer",new Customer());
-
+        model.addAttribute("userdto", new UserDto());
         return "index";
     }
 }

@@ -193,15 +193,15 @@
             </div>
 
 
-            <form action="/">
+            <form th:action="@{http://localhost:8080/customer/login}" onsubmit="return pwdcheck()" method="post" th:object="${userdto}">
               <div class="form-group">
                 <label for="username">Email:</label>
-                <input type="text" class="form-control" id="username" placeholder="Skriv din email"
+                <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Skriv din email"
                        name="username" pattern="(?!^ +$)^.+$" required>
               </div>
               <div class="form-group">
                 <label for="pwd">Lösenord:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Skriv ditt lösenord"
+                <input th:field="*{password}" type="password" class="form-control" id="pwd" placeholder="Skriv ditt lösenord"
                        name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                        title="Lösenordet måste innehålla stora och små bokstäver, minst en siffra samt vara minst 8 karaktärer långt"
                        required>
