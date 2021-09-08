@@ -1,4 +1,5 @@
 package com.example.hakimlivs.controller;
+import com.example.hakimlivs.application.CustomerService;
 import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.repository.CustomerRepository;
@@ -18,18 +19,12 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepo;
 
+    @Autowired
+    private CustomerService customerService;
+
     @PostMapping("/add")
     public String saveCustomer(Customer customer) {
-        customer.setRole(Role.CUSTOMER);
-
-        Customer oldCustomer = customerRepo.findCustomerByEmail(customer.getEmail());
-
-        if(oldCustomer == null){
-            customerRepo.save(customer);
-            return "redirect:/";
-        }else {
-            return "redirect:/";
-        }
-
+        customerService.signUp(customer);
+        return "redirect:/";
     }
 }
