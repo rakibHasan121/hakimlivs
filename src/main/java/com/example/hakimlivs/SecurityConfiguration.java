@@ -40,6 +40,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*").permitAll()
+                .antMatchers("/customer/*").permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(filter)
                 .addFilter(jwtAuthorizationFilter)
