@@ -1,4 +1,4 @@
-package com.example.hakimlivs.application;
+package com.example.hakimlivs.service;
 
 import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.Role;
@@ -36,7 +36,7 @@ public class CustomerService {
         return customerRepository.save(newCustomer);
     }
 
-    public boolean login(UserDto userDto) throws Exception {
+    public boolean login(UserDto userDto) {
         if (!emailExists(userDto.getUsername())) {
             //TODO: Lägg till ordentlig felsökning
             return false;
