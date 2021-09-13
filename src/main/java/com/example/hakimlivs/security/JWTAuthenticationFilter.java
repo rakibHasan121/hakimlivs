@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -45,6 +46,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
 
     private Optional<UserDto> getPrincipal(HttpServletRequest req) {
+
         try {
             return Optional.of(objectMapper.readValue(req.getInputStream().readAllBytes(), UserDto.class));
         } catch (IOException e) {

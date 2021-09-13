@@ -47,8 +47,9 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/checkout/*").hasRole("CUSTOMER")
                 .antMatchers("/customer/*").permitAll()
                 .antMatchers("/api/*", "/data/*").permitAll()
-                .anyRequest().authenticated().and()
-                .addFilter(filter)
+                .anyRequest().authenticated()
+                .and().formLogin().loginPage("/index.html").permitAll()
+                .and().addFilter(filter)
                 .addFilter(jwtAuthorizationFilter)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

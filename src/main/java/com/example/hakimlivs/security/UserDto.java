@@ -1,14 +1,24 @@
 package com.example.hakimlivs.security;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonPropertyOrder({ "email", "password" })
 public class UserDto {
+
     private String email;
     private String password;
 
     public UserDto() {
+    }
 
+    @JsonCreator
+    public UserDto(@JsonProperty("email") String email, @JsonProperty("password") String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public String getPassword() {
