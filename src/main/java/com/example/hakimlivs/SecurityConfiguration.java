@@ -42,7 +42,6 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
                 .antMatchers("/customer/*").permitAll()
                 .antMatchers("/api/*", "/data/*").permitAll()
-                .antMatchers("/?success").hasRole("CUSTOMER")
                 .anyRequest().authenticated().and()
                 .addFilter(filter)
                 .addFilter(jwtAuthorizationFilter)
