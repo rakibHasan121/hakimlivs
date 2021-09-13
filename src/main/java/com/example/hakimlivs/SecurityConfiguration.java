@@ -48,10 +48,15 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/customer/*").permitAll()
                 .antMatchers("/api/*", "/data/*").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/index.html").permitAll()
-                .and().addFilter(filter)
-                .addFilter(jwtAuthorizationFilter)
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .and()
+                    .formLogin().loginPage("/index.html")
+                    .usernameParameter("email").permitAll()
+                    .defaultSuccessUrl("/?success")
+                    //.failureUrl("/login?error=true")
+                .and()
+                    .addFilter(filter)
+                    .addFilter(jwtAuthorizationFilter)
+                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
 
