@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
         <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-      <a href="/index.html"><img src="images/hakimLogo.png" alt="Hakim Livs Logo" id="logo"></a>
+      <a th:href="@{/}"><img src="images/hakimLogo.png" alt="Hakim Livs Logo" id="logo"></a>
 
         <!-- Logga in modal button -->
         <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".login-register-form" disabled>Logga in</button>
