@@ -1,5 +1,6 @@
 package com.example.hakimlivs.security;
 
+import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -36,14 +37,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         return getPrincipal(req)
                 .map(user -> authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(
-                                user.getUsername(),
+                                user.getEmail(),
                                 user.getPassword(),
                                 new ArrayList<>()))
                 )
                 .orElse(null);
     }
 
-    private Optional<com.example.hakimlivs.security.UserDto> getPrincipal(HttpServletRequest req) {
+    private Optional<UserDto> getPrincipal(HttpServletRequest req) {
         try {
             return Optional.of(objectMapper.readValue(req.getInputStream().readAllBytes(), UserDto.class));
         } catch (IOException e) {
@@ -58,9 +59,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             final FilterChain chain,
                                             final Authentication auth) throws IOException {
 
-        User user = (User) auth.getPrincipal();
+        Customer customer = (Customer) auth.getPrincipal();
 
-        res.getWriter().write(jwtIssuer.generateToken(user));
+        res.getWriter().write(jwtIssuer.generateToken(customer));
         res.getWriter().flush();
 
     }

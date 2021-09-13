@@ -3,9 +3,16 @@ package com.example.hakimlivs.model;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.lang.Nullable;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Customer class represents a customer
@@ -13,7 +20,7 @@ import java.time.LocalDate;
  */
 @Entity
 @Table(name="customer")
-public class Customer {
+public class Customer implements UserDetails {
 
     @Id
     @GeneratedValue
@@ -44,6 +51,13 @@ public class Customer {
 
     }
 
+    public Customer(String email, String password, Role role) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+
     public Role getRole() {
         return role;
     }
@@ -54,6 +68,41 @@ public class Customer {
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<GrantedAuthority> setAuths = new HashSet<>();
+
+        setAuths.add(new SimpleGrantedAuthority("ROLE_" + role));
+
+
+        return Collections.unmodifiableSet(setAuths);
     }
 
     public void setPassword(String password) {

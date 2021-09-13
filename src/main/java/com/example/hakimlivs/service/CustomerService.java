@@ -37,11 +37,11 @@ public class CustomerService {
     }
 
     public boolean login(UserDto userDto) {
-        if (!emailExists(userDto.getUsername())) {
+        if (!emailExists(userDto.getEmail())) {
             //TODO: Lägg till ordentlig felsökning
             return false;
         }
-        Customer customer = customerRepository.findCustomerByEmail(userDto.getUsername());
+        Customer customer = customerRepository.findCustomerByEmail(userDto.getEmail());
         return passwordEncoder.matches(userDto.getPassword(), customer.getPassword());
     }
 

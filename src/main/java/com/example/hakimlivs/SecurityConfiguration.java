@@ -1,5 +1,6 @@
 package com.example.hakimlivs;
 
+import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.repository.UserRepository;
 import com.example.hakimlivs.security.JWTAuthenticationFilter;
 import com.example.hakimlivs.security.JWTAuthorizationFilter;
@@ -18,12 +19,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserRepository userRepo;
+    private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
     private final JWTIssuer jwtIssuer;
 
     @Autowired
-    public SecurityConfiguration(UserRepository userRepo, PasswordEncoder passwordEncoder, JWTIssuer jwtIssuer) {
+    public SecurityConfiguration(UserRepository userRepo, CustomerRepository customerRepository, PasswordEncoder passwordEncoder, JWTIssuer jwtIssuer) {
         this.userRepo = userRepo;
+        this.customerRepository = customerRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtIssuer = jwtIssuer;
     }
@@ -40,6 +43,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
+                .antMatchers("/customer/details").hasRole("CUSTOMER")
                 .antMatchers("/customer/*").permitAll()
                 .antMatchers("/api/*", "/data/*").permitAll()
                 .anyRequest().authenticated().and()
@@ -51,7 +55,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userRepo::findUserByUsername).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(customerRepository::findCustomerByEmail).passwordEncoder(passwordEncoder);
     }
 
 }

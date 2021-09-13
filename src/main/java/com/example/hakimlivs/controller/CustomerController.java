@@ -5,12 +5,12 @@ import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.security.UserDto;
 import com.example.hakimlivs.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Handles requests related to the customer class
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @CrossOrigin
-@RequestMapping(path="/customer")
+@RequestMapping
 public class CustomerController {
 
     @Autowired
@@ -27,13 +27,13 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @PostMapping("/add")
+    @PostMapping("customer/add")
     public String saveCustomer(Customer customer) {
         customerService.signUp(customer);
         return "redirect:/";
     }
 
-    @PostMapping("/login")
+    @PostMapping("customer/login")
     public String loginCustomer(UserDto userDto) {
         if (customerService.login(userDto)) {
             System.out.println("Lyckades med login");
@@ -43,9 +43,20 @@ public class CustomerController {
         return "redirect:/";
     }
 
-    @GetMapping("/all")
-    public String getAllCustomers(Model model) {
+    @GetMapping("customer/all")
+    public @ResponseBody
+    Iterable<Customer> getAllCustomers(Model model) {
         model.addAttribute("customers", customerRepo.findAll());
-        return "customers";
+        return customerRepo.findAll();
+    }
+
+    /*
+    @PostMapping("login")
+    public @ResponseBody login ()
+
+     */
+
+    @GetMapping("customer/details") public @ResponseBody Customer viewCustomerDetails (@AuthenticationPrincipal Customer customer) {
+        return customerRepo.findCustomerByEmail(customer.getEmail());
     }
 }

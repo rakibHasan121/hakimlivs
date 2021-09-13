@@ -1,5 +1,6 @@
 package com.example.hakimlivs.security;
 
+import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.Role;
 import com.example.hakimlivs.model.User;
 import io.jsonwebtoken.Claims;
@@ -25,14 +26,14 @@ public class JWTIssuer {
         this.validity = validity;
     }
 
-    public String generateToken(final User user) {
+    public String generateToken(final Customer customer) {
 
-        final String authorities = user.getAuthorities().stream()
+        final String authorities = customer.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
 
         return Jwts.builder()
-                .setSubject(user.getUsername())
+                .setSubject(customer.getUsername())
                 .claim("authorities", authorities)
                 .signWith(key)
                 .setIssuedAt(Date.from(Instant.now()))
@@ -40,11 +41,11 @@ public class JWTIssuer {
                 .compact();
     }
 
-    public User validate(String token) {
+    public Customer validate(String token) {
         Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
 
         String authorities = (String) claims.get("authorities");
         List<Role> roles = Arrays.stream(authorities.split(",")).map(r -> r.substring(5)).map(Role::valueOf).collect(Collectors.toList());
-        return new User(claims.getSubject(), null, roles.get(0));
+        return new Customer(claims.getSubject(), null, roles.get(0));
     }
 }

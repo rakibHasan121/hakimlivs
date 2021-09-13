@@ -196,7 +196,7 @@
             <form th:action="@{/customer/login}" onsubmit="return pwdcheck()" method="post" th:object="${userdto}">
               <div class="form-group">
                 <label for="username">Email:</label>
-                <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Skriv din email"
+                <input th:field="*{email}" type="text" class="form-control" id="username" placeholder="Skriv din email"
                        name="username" pattern="(?!^ +$)^.+$" required>
               </div>
               <div class="form-group">

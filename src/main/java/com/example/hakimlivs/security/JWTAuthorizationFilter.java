@@ -1,5 +1,6 @@
 package com.example.hakimlivs.security;
 
+import com.example.hakimlivs.model.Customer;
 import com.example.hakimlivs.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,9 +46,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         String token = request.getHeader("Authorization");
         LOG.info("Försöker att logga in: {}", token);
         if (token != null) {
-            User user = jwtIssuer.validate(token.substring(7));
-            if (user != null) {
-                return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+            Customer customer = jwtIssuer.validate(token.substring(7));
+            if (customer != null) {
+                return new UsernamePasswordAuthenticationToken(customer, null, customer.getAuthorities());
             }
 
             LOG.info("Kunde inte parsa token och därför inte logga in: {}", token);

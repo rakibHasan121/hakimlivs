@@ -24,8 +24,8 @@ public class UserResource {
 
     @PostMapping("/user/signup")
     public void signUp(@RequestBody SignUpRequestDto signUpRequest) {
-        LOG.info("Creating user {}", signUpRequest.getUsername());
-        signupService.signUp(signUpRequest.getUsername(), passwordEncoder.encode(signUpRequest.getPassword()), signUpRequest.getRole());
+        LOG.info("Creating user {}", signUpRequest.getEmail());
+        signupService.signUp(signUpRequest.getEmail(), passwordEncoder.encode(signUpRequest.getPassword()), signUpRequest.getRole());
     }
 
     /*
