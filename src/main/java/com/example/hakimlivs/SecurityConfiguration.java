@@ -44,6 +44,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
                 .antMatchers("/customer/details").hasRole("CUSTOMER")
+                .antMatchers("/checkout/*").hasRole("CUSTOMER")
                 .antMatchers("/customer/*").permitAll()
                 .antMatchers("/api/*", "/data/*").permitAll()
                 .anyRequest().authenticated().and()

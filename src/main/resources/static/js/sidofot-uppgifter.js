@@ -1,4 +1,4 @@
-fetch('data/sidofotupppgifter.json')
+fetch('../data/sidofotupppgifter.json')
       .then(function (response) 
       {
           return response.json();

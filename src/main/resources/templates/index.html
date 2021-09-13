@@ -155,9 +155,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-        <button type="button" class="btn btn-primary" id="finish-checkout-btn"
-                onclick="document.location='checkout.html'">Slutför beställning
-        </button>
+        <a th:href="@{/checkout/}">
+          <button type="button" class="btn btn-primary" id="finish-checkout-btn">Slutför beställning
+          </button>
+        </a>
       </div>
     </div>
   </div>
@@ -217,7 +218,7 @@
 
           <div id="registration-form" class="tab-pane fade">
 
-            bane bild
+
             <div class="imgcontainer">
               <img src="images/customerLogIn.png" alt="Avatar" class="avatar"
                    style="width:120px;height:120px;">

@@ -18,7 +18,6 @@ import java.util.List;
 
 @Controller
 @CrossOrigin
-@RequestMapping
 public class CustomerController {
 
     @Autowired
@@ -58,5 +57,10 @@ public class CustomerController {
 
     @GetMapping("customer/details") public @ResponseBody Customer viewCustomerDetails (@AuthenticationPrincipal Customer customer) {
         return customerRepo.findCustomerByEmail(customer.getEmail());
+    }
+
+    @GetMapping("checkout/")
+    public String customerCheckout (@AuthenticationPrincipal Customer customer) {
+        return "checkout";
     }
 }
