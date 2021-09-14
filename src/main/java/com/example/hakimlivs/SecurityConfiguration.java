@@ -84,6 +84,8 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/checkout").hasAuthority("ROLE_CUSTOMER")
+                .antMatchers("/orderbekraftelse.html").hasAuthority("ROLE_CUSTOMER")
+                .antMatchers("/order/**").hasAuthority("ROLE_CUSTOMER")
                 .antMatchers("/customer/details").hasAuthority("ROLE_CUSTOMER")
                 .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
                 .antMatchers("/customer/*").permitAll()
