@@ -3,7 +3,7 @@ function pwdcheck() {
     const nameRegex = /^[a-öA-Ö_ ]*$/;
     const x7 = document.forms["myForm"]["lastname"];
     const lastnameRegex = /^[a-öA-Ö_ ]*$/;
-    const x2 = document.forms["myForm"]["email"];
+    const x2 = document.forms["myForm"]["newemail"];
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     const x3 = document.forms["myForm"]["address"];
     const adressRegex = /^[a-öA-Ö0-9_ :]*$/;

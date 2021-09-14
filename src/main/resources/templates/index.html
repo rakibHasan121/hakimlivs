@@ -212,7 +212,7 @@
             </div>
 
 <!--            <form th:action="@{/login}" onsubmit="return pwdcheck()" method="post" th:object="${userdto}">-->
-            <form th:action="@{/}" onsubmit="return pwdcheck()" method="post" >
+            <form th:action="@{/}" method="post" >
               <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="text" class="form-control" id="email" placeholder="Skriv din email"
@@ -243,7 +243,7 @@
             </div>
 
 <!--            <form th:action="@{http://localhost:8080/customer/add}" onsubmit="return pwdcheck()" method="post" th:object="${customer}">-->
-            <form th:action="@{/customer/add}" onsubmit="return pwdcheck()" method="post" th:object="${customer}">
+            <form th:action="@{/customer/add}" name="myForm" onsubmit="return pwdcheck()" method="post" th:object="${customer}">
               <div class="form-group">
                 <label for="firstname">Ditt förnamn:</label>
                 <input th:field="*{firstname}" type="text" minlength="2" maxlength="50" class="form-control" id="firstname"
