@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="sv" xmlns:th="http://www.thymeleaf.org">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,6 +28,7 @@
     </div>
   </nav>
 
+
     <div class="container-order">
         <h2>Ordersammanställning</h2>    
         <table class="summary-table" id="summary-table">
@@ -43,10 +45,28 @@
         </table>
         <div id="total-sum"><strong>Totalsumma: </strong><span id="total-cart"></span></div>
     </div>
-    <!-- Temporarely disabled button until sprint 4
+
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let tempcart = JSON.parse(localStorage.getItem("cart"));
+        /*]]>*/
+    </script>
+
+    <div sec:authorize="!isAuthenticated()">
+        Not authenticated
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        This content is only shown to authenticated users.
+    </div>
+    <div sec:authorize="hasAuthority('ROLE_CUSTOMER')">
+        This content is only shown to role_customer.
+    </div>
+
+     Temporarely disabled button until sprint 4
     <div class="button-center">
-      <button type="button submit" class="btn btn-primary" id="finish-checkout-btn-two" onclick="document.location='orderbekraftelse.html'">Slutför beställning</button>
-    </div> -->
+      <button type="button submit" class="btn btn-primary" id="finish-checkout-btn-two" onclick="">Slutför beställning</button>
+    </div>
 
 
 <!-- Footer -->

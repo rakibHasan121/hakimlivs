@@ -56,11 +56,15 @@ public class CustomerController {
      */
 
     @GetMapping("customer/details") public @ResponseBody Customer viewCustomerDetails (@AuthenticationPrincipal Customer customer) {
+        System.out.println("customer details: " + customer.getEmail());
         return customerRepo.findCustomerByEmail(customer.getEmail());
     }
 
-    @GetMapping("checkout/")
-    public String customerCheckout (@AuthenticationPrincipal Customer customer) {
+    @GetMapping("/checkout")
+    public String customerCheckout (@AuthenticationPrincipal Customer customer, Model model) {
+        System.out.println("customern som gick till checkout: " + customer.getEmail());
+        //model.addAttribute();
+
         return "checkout";
     }
 }

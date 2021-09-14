@@ -96,4 +96,22 @@ public class OrderEntityController {
         }
         return "error processing request addproducts; orderid:" + orderID + " productid:" + productID;
     }
+
+    // @Postmapping
+    //public String receiveOrder(@AuthenticationPrincipal Customer customer, @Requestparm-ish List<items> orderitems){
+    //
+    // OrderEntity order = new Order();
+    //
+    // foreach(orderitems:)
+    //  productsrepo.findbyid(orderitems.id)
+    //
+    //
+    // order.setCustomer(customerRepo.findcustomerbyemail(customer);
+    // order.addProducts(orderitems)
+    // OrderRepository.save(order);
+    //return "finemangs!";
+    //
+    //
+    //}
+
 }

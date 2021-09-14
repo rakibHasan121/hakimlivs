@@ -36,27 +36,69 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         final JWTAuthenticationFilter filter = new JWTAuthenticationFilter(authenticationManager(), jwtIssuer, new ObjectMapper());
         final JWTAuthorizationFilter jwtAuthorizationFilter = new JWTAuthorizationFilter(authenticationManager(), jwtIssuer);
 
+  /*
         http
                 .csrf()
                 .disable()
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
-                .antMatchers("/customer/details").hasRole("CUSTOMER")
+                    .antMatchers("/checkout/**").hasAuthority("CUSTOMER")
+                    .antMatchers("/").anonymous()
+                .and()
+                .formLogin()
+                    .loginPage("/")
+                    .failureUrl("/?error")
+                .and()
+                .logout()
+                    .logoutSuccessUrl("/");
+
+
+        http
+                .csrf()
+                .disable()
+                .cors()
+                .disable()
+                .authorizeRequests()
                 .antMatchers("/checkout/*").hasRole("CUSTOMER")
+                .antMatchers("/customer/details").hasRole("CUSTOMER")
+                .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
                 .antMatchers("/customer/*").permitAll()
                 .antMatchers("/api/*", "/data/*").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                    .formLogin().loginPage("/index.html")
+                    .formLogin().loginPage("/")
                     .usernameParameter("email").permitAll()
                     .defaultSuccessUrl("/?success")
-                    //.failureUrl("/login?error=true")
+                    //.failureUrl("/?error")
                 .and()
                     .addFilter(filter)
                     .addFilter(jwtAuthorizationFilter)
-                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
+ */
+
+        http
+                .csrf()
+                .disable()
+                .cors()
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/checkout").hasAuthority("ROLE_CUSTOMER")
+                .antMatchers("/customer/details").hasAuthority("ROLE_CUSTOMER")
+                .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
+                .antMatchers("/customer/*").permitAll()
+                .antMatchers("/api/*", "/data/*").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/")
+                .usernameParameter("email").permitAll()
+                .defaultSuccessUrl("/?success")
+                .failureUrl("/?error")
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
+
+
+
     }
 
 
@@ -64,5 +106,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customerRepository::findCustomerByEmail).passwordEncoder(passwordEncoder);
     }
+
+
 
 }

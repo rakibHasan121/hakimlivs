@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="sv" xmlns:th="http://www.thymeleaf.org">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -71,6 +72,19 @@
     <div id="right-field" class="col-lg-9">
       <div th:if="${param.success}">
         <div class="alert alert-success">You've successfully Logged in!!!!!!</div>
+      </div>
+      <div th:if="${param.error}">
+        <div class="alert alert-danger">Failed to login</div>
+      </div>
+
+      <div sec:authorize="!isAuthenticated()">
+        Not authenticated
+      </div>
+      <div sec:authorize="isAuthenticated()">
+        This content is only shown to authenticated users.
+      </div>
+      <div sec:authorize="hasAuthority('ROLE_CUSTOMER')">
+        This content is only shown to role_customer.
       </div>
 
       <!-- Carousel-slider -->
@@ -159,7 +173,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-        <a th:href="@{/checkout/}">
+        <a th:href="@{/checkout}">
           <button type="button" class="btn btn-primary" id="finish-checkout-btn">Slutför beställning
           </button>
         </a>
@@ -198,7 +212,7 @@
             </div>
 
 <!--            <form th:action="@{/login}" onsubmit="return pwdcheck()" method="post" th:object="${userdto}">-->
-            <form th:action="@{/index.html}" method="post" >
+            <form th:action="@{/}" method="post" >
               <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="text" class="form-control" id="email" placeholder="Skriv din email"
