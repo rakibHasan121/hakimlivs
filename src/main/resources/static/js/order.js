@@ -252,9 +252,9 @@ function correctInputCartTotals(event)
         console.log("start submit order");
         //submitOrderWithCustomer(customerid);
 
-        let customerid = document.getElementById("customerid").value;
+        //let customerid = document.getElementById("customerid").value;
+        let customerid = document.getElementById("customerid").getAttribute("value");
         console.log("retrievade customerid är: " + customerid);
-        console.log("felsökning documentmodel value... " + document.getElementById("customerid").value);
 
         submitOrderWithCustomer(customerid);
         //let firstname = document.getElementById("firstname").value;
