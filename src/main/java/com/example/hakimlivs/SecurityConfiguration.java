@@ -96,9 +96,6 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .failureUrl("/?error")
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
-
-
-
     }
 
 

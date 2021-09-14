@@ -30,7 +30,7 @@
 
 
     <div class="container-order">
-        <h2>Ordersammanställning</h2>    
+        <h2>Ordersammanställning</h2>
         <table class="summary-table" id="summary-table">
             <thead class="table-head">
             <tr>
@@ -46,12 +46,19 @@
         <div id="total-sum"><strong>Totalsumma: </strong><span id="total-cart"></span></div>
     </div>
 
-
+<!--
     <script th:inline="javascript">
         /*<![CDATA[*/
+
         let tempcart = JSON.parse(localStorage.getItem("cart"));
+        let productmap = new Map();
+        tempcart.forEach(item => productmap.set(item.id, item.quantity));
+
         /*]]>*/
     </script>
+
+    <p th:text="${#maps.isEmpty(${productmap})}"></p>
+    -->
 
     <div sec:authorize="!isAuthenticated()">
         Not authenticated
@@ -65,7 +72,8 @@
 
      Temporarely disabled button until sprint 4
     <div class="button-center">
-      <button type="button submit" class="btn btn-primary" id="finish-checkout-btn-two" onclick="">Slutför beställning</button>
+        <div id="customerid" th:value="${thcustomerid}"></div>
+      <button class="btn btn-primary" id="finish-checkout-btn-two">Slutför beställning</button>
     </div>
 
 
@@ -89,8 +97,8 @@
 </footer>
 
 <script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/order.js"></script>
+<script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/validation.js"></script>
 <script src="../js/sidofot-uppgifter.js" async></script>
 </body>

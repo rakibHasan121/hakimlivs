@@ -5,6 +5,12 @@ $("#customer-form").submit(function(event){
     validateForm();
     event.preventDefault();    
 });
+
+$("#finish-checkout-btn-two").click(function (event){
+    console.log("start submit order körs nu...");
+    startSubmitOrder();
+});
+
 displayCart();
 
 
@@ -243,43 +249,49 @@ function correctInputCartTotals(event)
      */
     function startSubmitOrder(){
 
-        //console.log("start submit order");
+        console.log("start submit order");
+        //submitOrderWithCustomer(customerid);
 
-        let firstname = document.getElementById("firstname").value;
-        let lastname = document.getElementById("lastname").value;
-        let address = document.getElementById("address").value;
-        let zipcode = document.getElementById("zipcode").value;
-        let city = document.getElementById("city").value;
-        let phone = document.getElementById("phonenumber").value;
-        let email = document.getElementById("email").value;
+        let customerid = document.getElementById("customerid").value;
+        console.log("retrievade customerid är: " + customerid);
+        console.log("felsökning documentmodel value... " + document.getElementById("customerid").value);
+
+        submitOrderWithCustomer(customerid);
+        //let firstname = document.getElementById("firstname").value;
+        //let lastname = document.getElementById("lastname").value;
+        //let address = document.getElementById("address").value;
+        //let zipcode = document.getElementById("zipcode").value;
+        //let city = document.getElementById("city").value;
+        //let phone = document.getElementById("phonenumber").value;
+        //let email = document.getElementById("email").value;
 
         //console.log("försöker posta");
  
-        $.ajax({
-            async: false,
-            url: 'https://hakims-livs.herokuapp.com/customer/add',
-            data: JSON.stringify({
-                firstname : `${firstname}`,
-                lastname : `${lastname}`,
-                address : `${address}`,
-                zipcode : `${zipcode}`,
-                city : `${city}`,
-                phone : `${phone}`,
-                email : `${email}`}),
-            type: 'POST',
-            async: true,
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            }            
-        }).done(function (msg){
-            let jsonUpdatedData = msg;
-                customerid = jsonUpdatedData.id;
-                //console.log("Customerid " + customerid);
-                //console.log(`https://hakims-livs.herokuapp.com/order/add?customerID=${customerid}`);
-                
-                submitOrderWithCustomer(customerid);
-        });
+        //$.ajax({
+        //    async: false,
+        //    url: 'https://hakims-livs.herokuapp.com/customer/add',
+        //    data: JSON.stringify({
+        //        firstname : `${firstname}`,
+        //        lastname : `${lastname}`,
+        //        address : `${address}`,
+        //        zipcode : `${zipcode}`,
+        //        city : `${city}`,
+        //        phone : `${phone}`,
+        //        email : `${email}`}),
+        //    type: 'POST',
+        //    async: true,
+        //    headers: {
+        //        "Accept": "application/json",
+        //        "Content-Type": "application/json"
+        //    }
+        //}).done(function (msg){
+        //    let jsonUpdatedData = msg;
+        //        customerid = jsonUpdatedData.id;
+        //        //console.log("Customerid " + customerid);
+        //        //console.log(`https://hakims-livs.herokuapp.com/order/add?customerID=${customerid}`);
+        //
+        //submitOrderWithCustomer(customerid);
+        //});
     }
 
     /**
@@ -289,7 +301,7 @@ function correctInputCartTotals(event)
      */
     function submitOrderWithCustomer(customerid){
 
-        //console.log("submitting order with customerid: " + customerid);
+        console.log("submitting order with customerid: " + customerid);
 
         $.ajax({
             async: false,

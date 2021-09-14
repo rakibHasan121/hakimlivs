@@ -1,6 +1,7 @@
 package com.example.hakimlivs.controller;
 
 import com.example.hakimlivs.model.Customer;
+import com.example.hakimlivs.model.ProductOrderListDto;
 import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.security.UserDto;
 import com.example.hakimlivs.service.CustomerService;
@@ -63,7 +64,8 @@ public class CustomerController {
     @GetMapping("/checkout")
     public String customerCheckout (@AuthenticationPrincipal Customer customer, Model model) {
         System.out.println("customern som gick till checkout: " + customer.getEmail());
-        //model.addAttribute();
+        model.addAttribute("productlist", new ProductOrderListDto());
+        model.addAttribute("thcustomerid",customer.getId());
 
         return "checkout";
     }
