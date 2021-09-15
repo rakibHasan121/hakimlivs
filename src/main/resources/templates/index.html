@@ -77,7 +77,8 @@
         <div class="alert alert-danger">Failed to login</div>
       </div>
 
-      <div sec:authorize="!isAuthenticated()">
+      <!-- Behålls till framtida roll-tester -->
+<!--      <div sec:authorize="!isAuthenticated()">
         Not authenticated
       </div>
       <div sec:authorize="isAuthenticated()">
@@ -85,7 +86,7 @@
       </div>
       <div sec:authorize="hasAuthority('ROLE_CUSTOMER')">
         This content is only shown to role_customer.
-      </div>
+      </div>-->
 
       <!-- Carousel-slider -->
       <!--

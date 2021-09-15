@@ -20,11 +20,6 @@
     <div class="container">
       <a th:href="@{/}"><img src="../images/hakimLogo.png" alt="Hakim Livs Logo" id="logo"></a>
 
-
-        <!-- Logga in modal button -->
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".login-register-form" disabled>Logga in</button>
-
-
     </div>
   </nav>
 
@@ -60,17 +55,17 @@
     <p th:text="${#maps.isEmpty(${productmap})}"></p>
     -->
 
-    <div sec:authorize="!isAuthenticated()">
-        Not authenticated
-    </div>
-    <div sec:authorize="isAuthenticated()">
-        This content is only shown to authenticated users.
-    </div>
-    <div sec:authorize="hasAuthority('ROLE_CUSTOMER')">
-        This content is only shown to role_customer.
-    </div>
+    <!-- Behålls till framtida roll-tester -->
+<!--    <div sec:authorize="!isAuthenticated()">
+       Not authenticated
+  </div>
+  <div sec:authorize="isAuthenticated()">
+      This content is only shown to authenticated users.
+  </div>
+  <div sec:authorize="hasAuthority('ROLE_CUSTOMER')">
+      This content is only shown to role_customer.
+  </div>-->
 
-     Temporarely disabled button until sprint 4
     <div class="button-center">
         <div id="customerid" th:value="${thcustomerid}"></div>
       <button class="btn btn-primary" id="finish-checkout-btn-two">Slutför beställning</button>
