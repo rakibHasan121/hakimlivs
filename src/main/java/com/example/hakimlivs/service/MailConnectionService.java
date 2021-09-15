@@ -1,20 +1,16 @@
 package com.example.hakimlivs.service;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
+import org.springframework.stereotype.Service;
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 
 @Service
 public class MailConnectionService {
 
-    @Value("${sendmail.url.post}")
-    private String postURL;
+    private final String postURL = "https://hakim-mail.herokuapp.com/sendmail";
 
     public void sendMail() throws IOException {
 
