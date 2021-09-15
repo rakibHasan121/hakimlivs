@@ -5,6 +5,7 @@ import com.example.hakimlivs.model.ProductOrderListDto;
 import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.security.UserDto;
 import com.example.hakimlivs.service.CustomerService;
+import com.example.hakimlivs.service.MailConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -29,9 +31,19 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private MailConnectionService mailConnectionService;
+
+    //private final String MAILSERVER
+
     @PostMapping("customer/add")
     public String saveCustomer(Customer customer) {
         customerService.signUp(customer);
+        try {
+            mailConnectionService.sendMail();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return "redirect:/";
     }
 
