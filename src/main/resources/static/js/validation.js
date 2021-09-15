@@ -71,10 +71,30 @@ function pwdcheck() {
     } else if (!emailRegex.test(x2.value)) {
         alert("Felaktigt format på email");
         return false;
-    }
+     }/* else if (checkExistingEmail(x2.value)) {
+         alert("Det finns redan ett konto med den emailen");
+        return false;
+     }*/
     return true;
 }
 
+/*
+function checkExistingEmail(email) {
+    let customerArray = [];
+    fetch("http://localhost:8080/customer/allemails")
+        .then(res => res.json())
+        .then(customers => {
+            customerArray = customers;
+        })
+        .catch(error => console.error(error));
+
+    for (let i = 0; i < customerArray.length; i++) {
+        if (customerArray[i].toString() === email.toString()) {
+            return true;
+        }
+    }
+    return false;
+}*/
 
 //Validation of phonenumber textfield (XXX-XXX XX XX)
 let zChar = [' ', '(', ')', '-', '.'];

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -49,6 +51,19 @@ public class CustomerController {
         model.addAttribute("customers", customerRepo.findAll());
         return customerRepo.findAll();
     }
+
+    //TODO: Lägg till validering för ifall email redan finns.
+    //Plockar upp alla emails, används av en javascript metod för att kolla emails.
+/*    @GetMapping("customer/allemails")
+    public @ResponseBody
+    List<String> getAllCustomerEmails() {
+        List<String> customerEmails = new ArrayList<>();
+
+        for (Customer customer : customerRepo.findAll()) {
+            customerEmails.add(customer.getEmail());
+        }
+        return customerEmails;
+    }*/
 
     /*
     @PostMapping("login")
