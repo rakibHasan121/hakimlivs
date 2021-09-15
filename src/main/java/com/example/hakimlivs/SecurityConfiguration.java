@@ -88,7 +88,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/order/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/customer/details").hasAuthority("ROLE_CUSTOMER")
                 .antMatchers("/customer/all").hasAuthority("ROLE_ADMIN")
-                .antMatchers("/api/products").hasAuthority("ROLE_CUSTOMER")
+                .antMatchers("/api/products").permitAll()
                 .antMatchers("/api/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
                 .antMatchers("/customer/*").permitAll()
