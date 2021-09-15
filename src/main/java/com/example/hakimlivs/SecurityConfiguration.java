@@ -93,7 +93,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                //.antMatchers("/*","/resources/*","/templates/*","/static/*","/js/*","/css/*","/images/*", "/data/*" ).permitAll()
                //.antMatchers("/customer/*").permitAll()
                //.antMatchers("/api/*", "/data/*").permitAll()
-                .antMatchers("/*").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/")
