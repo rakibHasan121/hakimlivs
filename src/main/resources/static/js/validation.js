@@ -8,7 +8,7 @@ function pwdcheck() {
     const x3 = document.forms["myForm"]["address"];
     const adressRegex = /^[a-öA-Ö0-9_ :]*$/;
     const x4 = document.forms["myForm"]["city"];
-    const cityRegex = /^[a-öA-Ö]*$/;
+    const cityRegex = /^[a-öA-Ö\-]*$/;
     const x5 = document.forms["myForm"]["zipcode"];
     const zipRegex = /^\d{3} \d{2}$/;
     const x6 = document.forms["myForm"]["phonenumber"];
