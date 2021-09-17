@@ -12,7 +12,7 @@ public class MailConnectionService {
 
     private final String postURL = "https://hakim-mail.herokuapp.com/sendmail";
 
-    public void sendMail() throws IOException {
+    public void sendMail(String mailTo) throws IOException {
 
         System.out.println("posturl är currently: " + postURL);
 
@@ -23,7 +23,7 @@ public class MailConnectionService {
         http.setRequestProperty("Accept", "application/json");
         http.setRequestProperty("Content-Type", "application/json");
 
-        String data = "{\"to\":\"noreply.hakimlivs@gmail.com\",\"subject\":\"Välkommen!\",\"body\":\"Du är nu med i klubben!\"}";
+        String data = "{\"to\":\"" + mailTo + "\",\"subject\":\"Välkommen!\",\"body\":\"Du är nu med i klubben!\"}";
 
         byte[] out = data.getBytes(StandardCharsets.UTF_8);
 

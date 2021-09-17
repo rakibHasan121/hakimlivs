@@ -39,11 +39,7 @@ public class CustomerController {
     @PostMapping("customer/add")
     public String saveCustomer(Customer customer) {
         customerService.signUp(customer);
-        try {
-            mailConnectionService.sendMail();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         return "redirect:/";
     }
 
