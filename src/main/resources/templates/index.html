@@ -42,9 +42,10 @@
     </div>
 
     <!-- Logga in modal button -->
-    <button type="button" class="log-in-button btn btn-warning" data-toggle="modal"
+    <button sec:authorize="!isFullyAuthenticated()" type="button" class="log-in-button btn btn-warning" data-toggle="modal"
             data-target=".login-register-form">Logga in
     </button>
+    <a sec:authorize="isFullyAuthenticated()" class="log-in-button btn btn-warning" th:href="@{/perform_logout}">Logga ut</a>
 
     <!-- Order Modal button-->
     <button type="button" class="cart-button btn btn-warning" data-toggle="modal" data-target="#cart"><span
@@ -75,6 +76,9 @@
       </div>
       <div th:if="${param.error}">
         <div class="alert alert-danger">Failed to login</div>
+      </div>
+      <div th:if="${param.logged_out}">
+        <div class="alert alert-warning">You've successfully logged out</div>
       </div>
 
       <!-- Behålls till framtida roll-tester -->
@@ -212,7 +216,6 @@
                    style="width:120px;height:120px;">
             </div>
 
-<!--            <form th:action="@{/login}" onsubmit="return pwdcheck()" method="post" th:object="${userdto}">-->
             <form th:action="@{/}" method="post" >
               <div class="form-group">
                 <label for="email">Email:</label>
@@ -243,7 +246,6 @@
                    style="width:120px;height:120px;">
             </div>
 
-<!--            <form th:action="@{http://localhost:8080/customer/add}" onsubmit="return pwdcheck()" method="post" th:object="${customer}">-->
             <form th:action="@{/customer/add}" name="myForm" onsubmit="return pwdcheck()" method="post" th:object="${customer}">
               <div class="form-group">
                 <label for="firstname">Ditt förnamn:</label>
@@ -261,7 +263,7 @@
 
               <div class="form-group">
                 <label for="address">Gatuadress:</label>
-                <input th:field="*{address}" type="text" class="form-control" id="address" placeholder="Skriv din gatuadress"
+                <input th:field="*{address}" type="text" maxlength="50" class="form-control" id="address" placeholder="Skriv din gatuadress"
                        name="address" required>
               </div>
 
@@ -279,7 +281,7 @@
 
               <div class="form-group">
                 <label for="phonenumber">Telefon:</label>
-                <input th:field="*{phone}" type="text" minlength="10" maxlength="13" class="form-control" id="phonenumber"
+                <input th:field="*{phone}" type="text" minlength="6" maxlength="13" class="form-control" id="phonenumber"
                        placeholder="XXX-XXX XX XX"
                        title="Skriv ditt telefonnummer utan bindestreck"
                        onkeydown="ParseForNumber2(this)" onkeyup="backspacerUP(this,event)" required>
