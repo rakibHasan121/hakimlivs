@@ -31,8 +31,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @Autowired
-    private MailConnectionService mailConnectionService;
+
 
     //private final String MAILSERVER
 

@@ -43,7 +43,7 @@ public class CustomerService {
 
         if(savedCustomer != null){
             try {
-                mailConnectionService.sendMail(savedCustomer.getEmail());
+                mailConnectionService.sendMailNewCustomer(savedCustomer.getEmail());
             } catch (IOException e) {
                 e.printStackTrace();
             }
