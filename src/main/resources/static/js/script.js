@@ -358,7 +358,7 @@ $(function(){
     
     }
 
-    function emptyCart(event){
+    function emptyCart(){
         localStorage.clear();
         cartArray = [];
         displayCart();
@@ -427,9 +427,8 @@ $(function(){
         $(".minus-item").click(decreaseCartItem);
         $(".plus-item").click(increaseCartItem);
         $(".delete-item").click(removeCartItem);
-        $(".item-count").keyup(correctInputCartTotals);
-        $(".item-count").change(updateCartNumber);
-        $(".btn-emptyCart").click(emptyCart);
+        $(".item-count").keyup(correctInputCartTotals).change(updateCartNumber);
+        $(".btn-emptyCart").off('click').on('click', emptyCart);
     }
 
     function numberWithSpace(x) {
