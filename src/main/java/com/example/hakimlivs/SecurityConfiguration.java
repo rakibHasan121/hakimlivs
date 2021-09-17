@@ -100,6 +100,10 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/?success")
                 .failureUrl("/?error")
                 .and()
+                .logout().logoutUrl("/perform_logout")
+                .logoutSuccessUrl("/?logged_out")
+                .deleteCookies("JSESSIONID")
+                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
     }
 

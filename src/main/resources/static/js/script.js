@@ -467,6 +467,7 @@ $(function(){
 
         output = `<ul class='navbar-nav ml-auto nav-dropdown'>
                     <li><div class="list-group-log-in" data-toggle="modal" data-target=".login-register-form">Logga in</div></li>
+                    <li><a class="list-group-log-in" href="/perform_logout">Logga ut</a></li>
                     <li class="navbar-category-header"><span class="navbar-span">Kategorier:</span></li>
                     <li><div class="list-group-item navbar-button" data-toggle="collapse" data-target="#navbarResponsive">Alla Produkter</div></li>`;
         categories.forEach(category => {
