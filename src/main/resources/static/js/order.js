@@ -313,8 +313,15 @@ function correctInputCartTotals(event)
             console.log("orderid " + orderid);
             submitCartProducts();
         });
-        
-   
+
+        $.ajax({
+            async: false,
+            url: `https://hakims-livs.herokuapp.com/order/complete?orderID=${orderid}`,
+            type: 'GET'
+        }).done(function(msg){
+            console.log("Completing order");
+        });
+
         goToCheckout();
     }
 
@@ -349,6 +356,7 @@ function correctInputCartTotals(event)
     }
 
     function goToCheckout(){
+
         window.location.href = 'orderbekraftelse.html';
     }
 })

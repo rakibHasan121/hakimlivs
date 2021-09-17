@@ -8,8 +8,12 @@ import com.example.hakimlivs.repository.CustomerRepository;
 import com.example.hakimlivs.repository.OrderEntityRepository;
 import com.example.hakimlivs.repository.OrderProductJunctionRepository;
 import com.example.hakimlivs.repository.ProductsRepository;
+import com.example.hakimlivs.service.MailConnectionService;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 /**
  * Created by: Ulf Nyberg
@@ -37,6 +41,9 @@ public class OrderEntityController {
     @Autowired
     OrderProductJunctionRepository orderProductJunction;
 
+    @Autowired
+    private MailConnectionService mailConnectionService;
+
     /**
      * Returns all orders with get mapping
      * @return All orders in the database
@@ -58,6 +65,18 @@ public class OrderEntityController {
         OrderEntity createdOrder = new OrderEntity();
         createdOrder.setCustomer(selectedCustomer);
         return OrderEntityRepository.save(createdOrder);
+    }
+
+    @RequestMapping("/complete")
+    public void completeOrder(@RequestParam Long orderID ) {
+        OrderEntity order = OrderEntityRepository.getOrderEntityById(orderID);
+        if(order != null){
+            try {
+                mailConnectionService.sendMailNewOrder(order.getCustomer().getEmail(), orderID);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
