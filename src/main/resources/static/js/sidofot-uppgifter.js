@@ -17,8 +17,9 @@ fetch('../data/sidofotupppgifter.json')
       for (var i = 0; i < data.length; i++) 
       {
           var div = document.createElement("div");
-          div.innerHTML = 
-              'E-mail: ' + data[i].mail + 
+          div.innerHTML =
+
+              'E-mail: ' + '<a href="mailto:hakimlivs@mat.se">hakimlivs@mat.se</a>' +
               "<br/>" + 
               'Adress: ' + data[i].adress  + 
               "<br/>" + 
