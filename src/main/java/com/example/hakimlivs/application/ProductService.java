@@ -1,4 +1,4 @@
-package com.example.hakimlivs.domain.service;
+package com.example.hakimlivs.application;
 
 import com.example.hakimlivs.domain.Product;
 

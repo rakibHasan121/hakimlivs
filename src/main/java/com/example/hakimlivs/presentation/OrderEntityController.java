@@ -8,7 +8,7 @@ import com.example.hakimlivs.persistance.CustomerRepository;
 import com.example.hakimlivs.persistance.OrderEntityRepository;
 import com.example.hakimlivs.persistance.OrderProductJunctionRepository;
 import com.example.hakimlivs.persistance.ProductsRepository;
-import com.example.hakimlivs.domain.service.MailConnectionService;
+import com.example.hakimlivs.application.MailConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

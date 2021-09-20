@@ -1,6 +1,6 @@
 package com.example.hakimlivs.presentation;
 
-import com.example.hakimlivs.domain.service.SignupService;
+import com.example.hakimlivs.application.SignupService;
 import com.example.hakimlivs.presentation.dtos.SignUpRequestDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

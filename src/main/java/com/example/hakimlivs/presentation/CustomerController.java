@@ -1,7 +1,7 @@
 package com.example.hakimlivs.presentation;
 
 import com.example.hakimlivs.domain.Customer;
-import com.example.hakimlivs.domain.service.CustomerService;
+import com.example.hakimlivs.application.CustomerService;
 import com.example.hakimlivs.presentation.dtos.UserDto;
 import com.example.hakimlivs.persistance.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

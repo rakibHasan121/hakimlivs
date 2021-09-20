@@ -1,4 +1,4 @@
-package com.example.hakimlivs.domain.service;
+package com.example.hakimlivs.application;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

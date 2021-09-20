@@ -1,7 +1,7 @@
 package com.example.hakimlivs.presentation;
 
 import com.example.hakimlivs.domain.Product;
-import com.example.hakimlivs.domain.service.ProductService;
+import com.example.hakimlivs.application.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

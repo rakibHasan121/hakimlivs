@@ -1,6 +1,6 @@
 package com.example.hakimlivs.config;
 
-import com.example.hakimlivs.domain.service.SignupService;
+import com.example.hakimlivs.application.SignupService;
 import com.example.hakimlivs.persistance.UserRepository;
 import com.example.hakimlivs.security.JWTIssuer;
 import io.jsonwebtoken.SignatureAlgorithm;

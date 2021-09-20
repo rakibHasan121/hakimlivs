@@ -1,6 +1,6 @@
 package com.example.hakimlivs.domain;
 
-import com.example.hakimlivs.domain.service.PriceMath;
+import com.example.hakimlivs.application.PriceMath;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
