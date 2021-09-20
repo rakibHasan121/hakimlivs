@@ -65,6 +65,7 @@
     <div id="left-field" class="col-lg-3">
       <div class="list-group nav-category">
 
+
       </div>
 
     </div>
@@ -73,6 +74,7 @@
     <div id="right-field" class="col-lg-9">
       <div th:if="${param.success}">
         <div class="alert alert-success">You've successfully Logged in!!!!!!</div>
+        <a th:href="@{/logout}"><button type="button" class="btn btn-danger">Logout</button></a>
       </div>
       <div th:if="${param.error}">
         <div class="alert alert-danger">Failed to login</div>

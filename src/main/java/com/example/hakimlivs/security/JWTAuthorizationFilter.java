@@ -1,7 +1,6 @@
 package com.example.hakimlivs.security;
 
-import com.example.hakimlivs.model.Customer;
-import com.example.hakimlivs.model.User;
+import com.example.hakimlivs.domain.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;

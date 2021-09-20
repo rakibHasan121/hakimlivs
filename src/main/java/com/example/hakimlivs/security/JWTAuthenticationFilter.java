@@ -1,7 +1,7 @@
 package com.example.hakimlivs.security;
 
-import com.example.hakimlivs.model.Customer;
-import com.example.hakimlivs.model.User;
+import com.example.hakimlivs.domain.Customer;
+import com.example.hakimlivs.presentation.dtos.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Optional;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {

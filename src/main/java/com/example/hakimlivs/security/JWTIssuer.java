@@ -1,8 +1,7 @@
 package com.example.hakimlivs.security;
 
-import com.example.hakimlivs.model.Customer;
-import com.example.hakimlivs.model.Role;
-import com.example.hakimlivs.model.User;
+import com.example.hakimlivs.domain.Customer;
+import com.example.hakimlivs.domain.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.GrantedAuthority;
